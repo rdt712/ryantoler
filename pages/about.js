@@ -30,34 +30,34 @@ export default function About() {
               {/* <SocialIcon kind="facebook" href={siteMetadata.facebook} /> */}
               {/* <SocialIcon kind="youtube" href={siteMetadata.youtube} /> */}
               <SocialIcon kind="linkedin" href={siteMetadata.linkedin} />
-              {/* <SocialIcon kind="twitter" href={siteMetadata.twitter} /> */}
               <SocialIcon kind="instagram" href={siteMetadata.instagram} />
+              <SocialIcon kind="twitter" href={siteMetadata.twitter} />
             </div>
           </div>
           <div className="pt-8 pb-8 prose dark:prose-dark max-w-none xl:col-span-2">
             <p>
-              Ryan is a Staff Sofware Engineer at GE Aviation in Cincinnati, Ohio. He graduated with
-              his Master's of Computer Science from the Georgia Institue of Technolog in 2019. He
-              specializes in using serverless technologies to build scalable and performant
-              solutions.
+              Hi 👋🏻, my name is Ryan Toler, and I'm a Staff Sofware Engineer at GE Aviation in
+              Cincinnati, Ohio. I graduated from the Georgia Institue of Technology in 2019 with my
+              Master's in Computer Science. I specialize in using serverless technologies to build
+              scalable and performant solutions.
             </p>
             <p>
-              On the side, Ryan is an Instructional Associate at the Georgia Institute of Technology
-              in the Computer Science Department. He currently helps run one of the largest online
-              classes in the world,{' '}
+              Outside of my day job, I am also an Instructional Associate at the Georgia Institute
+              of Technology in the Computer Science Department. I currently help run one of the
+              largest online classes in the world,{' '}
               <a href="https://omscs.gatech.edu/cse-6242-data-visual-analytics" target="_blank">
                 CSE 6242 - Data and Visual Analytics
               </a>
-              , which averages just under 1,000 graduate students a semester. He also assists with{' '}
+              , which averages just under 1,000 graduate students a semester. I also assist with{' '}
               <a href="https://omscs.gatech.edu/cse-6242-data-visual-analytics" target="_blank">
-                CS 7646 - Machine Learning for Trading
+                CS 7646 - Machine Learning for Trading, to scratch my itch for stock trading.
               </a>
               .
             </p>
             <p>
-              In his free time, Ryan enjoys working out, playing golf, trading stock options (his
-              favorite ticker to trade is $SPX), and staying up to date on the latest trends in
-              computer science.
+              In my free time, I enjoy working out, playing golf, trading stock options (my favorite
+              ticker to trade is $TSLA), and staying up to date on the latest trends in computer
+              science.
             </p>
           </div>
         </div>
