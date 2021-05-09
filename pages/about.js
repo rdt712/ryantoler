@@ -60,9 +60,9 @@ export default function About() {
                 target="_blank"
                 rel="noreferrer"
               >
-                CS 7646 - Machine Learning for Trading, to scratch my itch for stock trading.
+                CS 7646 - Machine Learning for Trading
               </a>
-              .
+              , to scratch my itch for stock trading.
             </p>
             <p>
               In my free time, I enjoy working out, playing golf, trading stock options (my favorite
