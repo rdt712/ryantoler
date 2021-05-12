@@ -56,7 +56,7 @@ export default function About() {
               </a>
               , which averages just under 1,000 graduate students a semester. I also assist with{' '}
               <a
-                href="https://omscs.gatech.edu/cse-6242-data-visual-analytics"
+                href="https://omscs.gatech.edu/cs-7646-machine-learning-trading"
                 target="_blank"
                 rel="noreferrer"
               >
