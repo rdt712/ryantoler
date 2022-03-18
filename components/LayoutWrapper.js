@@ -5,26 +5,35 @@ import Link from './Link'
 import SectionContainer from './SectionContainer'
 import Footer from './Footer'
 import MobileNav from './MobileNav'
+import Typewriter from 'typewriter-effect'
 import ThemeSwitch from './ThemeSwitch'
+import { useRouter } from 'next/router'
 
 const LayoutWrapper = ({ children }) => {
+  const router = useRouter()
+
+  let path
+  if (router.pathname.endsWith('/[...slug]')) {
+    path = router.pathname.replace('/[...slug]', '')
+  } else {
+    path = router.pathname
+  }
   return (
     <SectionContainer>
       <div className="flex h-screen flex-col justify-between">
         <header className="flex items-center justify-between py-10">
           <div>
-            <Link href="/" aria-label={siteMetadata.headerTitle}>
-              <div className="flex items-center justify-between">
-                <div className="mr-3">
-                  <Logo />
-                </div>
-                {typeof siteMetadata.headerTitle === 'string' ? (
-                  <div className="hidden h-6 text-2xl font-semibold sm:block">
-                    {siteMetadata.headerTitle}
-                  </div>
-                ) : (
-                  siteMetadata.headerTitle
-                )}
+            <Link href="/">
+              <div className="text-primary dark:text-primary flex items-center justify-between text-xl font-semibold">
+                <Logo className="mr-1 fill-gray-800 dark:fill-white" width={25} height={25} />
+                {`${siteMetadata.headerTitle} ~${path}`}
+                <Typewriter
+                  options={{
+                    strings: [],
+                    autoStart: true,
+                    loop: true,
+                  }}
+                />
               </div>
             </Link>
           </div>

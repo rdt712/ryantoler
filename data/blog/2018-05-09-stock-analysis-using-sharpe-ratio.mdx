@@ -15,21 +15,19 @@ summary: Stock Analysis of Amazon and Facebook using the Sharpe Ratio in Python.
   does one compare different investments that may deliver similar results on average, but exhibit
   different levels of risks?
 </p>
-<div style={{ marginLeft: 'auto', marginRight: 'auto', display: 'block' }}>
+<p>Enter William Sharpe.</p>
+<div className="align-center flex justify-center">
   <Image alt="sharpe" src="/static/images/sharpe-ratio/sharpe.jpeg" width={200} height={250} />
 </div>
 <p>
-  Enter William Sharpe. He introduced the{' '}
-  <a href="https://web.stanford.edu/~wfsharpe/art/sr/sr.htm">
-    <em>reward-to-variability ratio</em>
-  </a>{' '}
-  in 1966 that soon came to be called the Sharpe Ratio. It compares the expected returns for two
-  investment opportunities and calculates the additional return per unit of risk an investor could
-  obtain by choosing one over the other. In particular, it looks at the difference in returns for
-  two investments and compares the average difference to the standard deviation (as a measure of
-  risk) of this difference. A higher Sharpe ratio means that the reward will be higher for a given
-  amount of risk. It is common to compare a specific opportunity against a benchmark that represents
-  an entire category of investments.
+  He introduced the [reward-to-variability
+  ratio]("https://web.stanford.edu/~wfsharpe/art/sr/sr.htm") in 1966 that soon came to be called the
+  Sharpe Ratio. It compares the expected returns for two investment opportunities and calculates the
+  additional return per unit of risk an investor could obtain by choosing one over the other. In
+  particular, it looks at the difference in returns for two investments and compares the average
+  difference to the standard deviation (as a measure of risk) of this difference. A higher Sharpe
+  ratio means that the reward will be higher for a given amount of risk. It is common to compare a
+  specific opportunity against a benchmark that represents an entire category of investments.
 </p>
 <p>
   The Sharpe ratio has been one of the most popular risk/return measures in finance, not least
@@ -77,38 +75,42 @@ print(benchmark_data.head())
 
 ```
 
-    Stocks
+Output
 
-    <class 'pandas.core.frame.DataFrame'>
-    DatetimeIndex: 252 entries, 2016-01-04 to 2016-12-30
-    Data columns (total 2 columns):
-    Amazon      252 non-null float64
-    Facebook    252 non-null float64
-    dtypes: float64(2)
-    memory usage: 5.9 KB
-                    Amazon    Facebook
-    Date
-    2016-01-04  636.989990  102.220001
-    2016-01-05  633.789978  102.730003
-    2016-01-06  632.650024  102.970001
-    2016-01-07  607.940002   97.919998
-    2016-01-08  607.049988   97.330002
+```text
+Stocks
 
-    Benchmarks
+<class 'pandas.core.frame.DataFrame'>
+DatetimeIndex: 252 entries, 2016-01-04 to 2016-12-30
+Data columns (total 2 columns):
+Amazon      252 non-null float64
+Facebook    252 non-null float64
+dtypes: float64(2)
+memory usage: 5.9 KB
+                Amazon    Facebook
+Date
+2016-01-04  636.989990  102.220001
+2016-01-05  633.789978  102.730003
+2016-01-06  632.650024  102.970001
+2016-01-07  607.940002   97.919998
+2016-01-08  607.049988   97.330002
 
-    <class 'pandas.core.frame.DataFrame'>
-    DatetimeIndex: 252 entries, 2016-01-04 to 2016-12-30
-    Data columns (total 1 columns):
-    S&P 500    252 non-null float64
-    dtypes: float64(1)
-    memory usage: 3.9 KB
-                S&P 500
-    Date
-    2016-01-04  2012.66
-    2016-01-05  2016.71
-    2016-01-06  1990.26
-    2016-01-07  1943.09
-    2016-01-08  1922.03
+Benchmarks
+
+<class 'pandas.core.frame.DataFrame'>
+DatetimeIndex: 252 entries, 2016-01-04 to 2016-12-30
+Data columns (total 1 columns):
+S&P 500    252 non-null float64
+dtypes: float64(1)
+memory usage: 3.9 KB
+            S&P 500
+Date
+2016-01-04  2012.66
+2016-01-05  2016.71
+2016-01-06  1990.26
+2016-01-07  1943.09
+2016-01-08  1922.03
+```
 
 ## Plot & summarize daily prices for Amazon and Facebook
 

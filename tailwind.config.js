@@ -28,17 +28,20 @@ module.exports = {
         sans: ['InterVariable', ...defaultTheme.fontFamily.sans],
       },
       colors: {
-        primary: colors.cyan,
+        primary: colors.sky,
         gray: colors.neutral,
+        accent: '#1e90ff',
+        day: '#f8f6f4',
+        night: '#18191a',
       },
       typography: (theme) => ({
         DEFAULT: {
           css: {
             color: theme('colors.gray.700'),
             a: {
-              color: theme('colors.primary.500'),
+              color: theme('colors.primary.600'),
               '&:hover': {
-                color: `${theme('colors.primary.600')} !important`,
+                color: `${theme('colors.primary.700')} !important`,
               },
               code: { color: theme('colors.primary.400') },
             },
@@ -156,6 +159,28 @@ module.exports = {
           },
         },
       }),
+      keyframes: {
+        shrink: {
+          '0% , 100%': {
+            height: '0.75rem',
+          },
+          '50%': {
+            height: '0.375rem',
+          },
+        },
+        expand: {
+          '0% , 100%': {
+            height: '0.375rem',
+          },
+          '50%': {
+            height: '0.75rem',
+          },
+        },
+      },
+      animation: {
+        shrink: 'shrink 1.5s infinte',
+        expand: 'expand 1.5s infinte',
+      },
     },
   },
   plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],

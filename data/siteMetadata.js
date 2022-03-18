@@ -1,7 +1,7 @@
 const siteMetadata = {
-  title: 'ryantoler',
+  title: 'Ryan Toler',
   author: 'Ryan Toler',
-  headerTitle: 'Ryan Toler',
+  headerTitle: 'ryantoler',
   description: 'Welcome to my corner of the internet.',
   language: 'en-us',
   theme: 'system', // system, dark or light
@@ -16,6 +16,7 @@ const siteMetadata = {
   facebook: 'https://facebook.com',
   youtube: 'https://youtube.com',
   linkedin: 'https://www.linkedin.com/in/ryantoler/',
+  instagram: 'https://www.instagram.com/ryantoler_photo',
   locale: 'en-US',
   analytics: {
     // If you want to use an analytics provider you have to add it to the
