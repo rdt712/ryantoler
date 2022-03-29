@@ -4,8 +4,11 @@ import Github from './github.svg'
 import Instagram from './instagram.svg'
 import Linkedin from './linkedin.svg'
 import Mail from './mail.svg'
+import Rss from './rss.svg'
 import Twitter from './twitter.svg'
 import Youtube from './youtube.svg'
+
+import Link from '@/components/Link'
 
 // Icons taken from: https://simpleicons.org/
 
@@ -16,6 +19,7 @@ const components = {
   instagram: Instagram,
   mail: Mail,
   linkedin: Linkedin,
+  rss: Rss,
   twitter: Twitter,
   youtube: Youtube,
 }
@@ -27,19 +31,14 @@ const SocialIcon = ({ kind, href, size = 8 }) => {
   const SocialSvg = components[kind]
 
   return (
-    <a
-      className="text-sm text-gray-500 transition hover:text-gray-600"
-      target="_blank"
-      rel="noopener noreferrer"
-      href={href}
-    >
+    <Link className="text-sm transition" href={href}>
       <>
         <span className="sr-only">{kind}</span>
         <SocialSvg
-          className={`text-gray-700 hover:text-primary-500 dark:text-gray-200 dark:hover:text-primary-400 h-${size} w-${size}`}
+          className={`text-gray-500 hover:text-day-accent dark:text-gray-400 dark:hover:text-night-accent h-${size} w-${size}`}
         />
       </>
-    </a>
+    </Link>
   )
 }
 

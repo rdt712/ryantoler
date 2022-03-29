@@ -28,22 +28,25 @@ module.exports = {
         sans: ['InterVariable', ...defaultTheme.fontFamily.sans],
       },
       colors: {
-        primary: colors.sky,
         gray: colors.neutral,
-        accent: '#1e90ff',
         day: '#f8f6f4',
         night: '#18191a',
+        'day-accent': '#0284c7', // 600
+        'day-accent-hover': '#0369a1', // 700
+        'night-accent': '#0ea5e9', // 500
+        'night-accent-hover': '#38bdf8', // 400
+        // accent: '#1e90ff',
       },
       typography: (theme) => ({
         DEFAULT: {
           css: {
             color: theme('colors.gray.700'),
             a: {
-              color: theme('colors.primary.600'),
+              color: theme('colors.day-accent'),
               '&:hover': {
-                color: `${theme('colors.primary.700')} !important`,
+                color: `${theme('colors.day-accent-hover')} !important`,
               },
-              code: { color: theme('colors.primary.400') },
+              code: { color: theme('night-accent-hover') },
             },
             h1: {
               fontWeight: '700',
@@ -68,10 +71,7 @@ module.exports = {
             code: {
               color: theme('colors.pink.500'),
               backgroundColor: theme('colors.gray.100'),
-              paddingLeft: '4px',
-              paddingRight: '4px',
-              paddingTop: '2px',
-              paddingBottom: '2px',
+              padding: '0.5rem',
               borderRadius: '0.25rem',
             },
             'code::before': {
@@ -81,17 +81,22 @@ module.exports = {
               content: 'none',
             },
             details: {
-              backgroundColor: theme('colors.gray.100'),
-              paddingLeft: '4px',
-              paddingRight: '4px',
-              paddingTop: '2px',
-              paddingBottom: '2px',
+              backgroundColor: theme('colors.gray.200'),
+              borderColor: theme('colors.gray.300'),
               borderRadius: '0.25rem',
+              borderWidth: '1px',
+              padding: '0.5rem',
+              marginTop: '0.5rem',
+              marginBottom: '0.5rem',
+              cursor: 'pointer',
+              '--tw-shadow': '0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px 0 rgba(0,0,0,0.06)',
+              '--tw-border-opacity': '1',
+              '--tw-bg-opacity': '0.5',
             },
             hr: { borderColor: theme('colors.gray.200') },
-            'ol li:before': {
+            'ol li:before,ul li:before': {
               fontWeight: '600',
-              color: theme('colors.gray.500'),
+              color: theme('colors.day-accent'),
             },
             'ul li:before': {
               backgroundColor: theme('colors.gray.500'),
@@ -107,11 +112,11 @@ module.exports = {
           css: {
             color: theme('colors.gray.300'),
             a: {
-              color: theme('colors.primary.500'),
+              color: theme('colors.night-accent'),
               '&:hover': {
-                color: `${theme('colors.primary.400')} !important`,
+                color: `${theme('colors.night-accent-hover')} !important`,
               },
-              code: { color: theme('colors.primary.400') },
+              code: { color: theme('colors.night-accent-hover') },
             },
             h1: {
               fontWeight: '700',
@@ -133,7 +138,17 @@ module.exports = {
             code: {
               backgroundColor: theme('colors.gray.800'),
             },
+            details: {
+              backgroundColor: theme('colors.gray.800'),
+              borderColor: theme('colors.gray.600'),
+              '--tw-border-opacity': '1',
+              '--tw-bg-opacity': '1',
+            },
             hr: { borderColor: theme('colors.gray.700') },
+            'ol li:before,ul li:before': {
+              fontWeight: '600',
+              color: theme('colors.night-accent'),
+            },
             'ol li::marker': {
               fontWeight: '600',
               color: theme('colors.gray.400'),

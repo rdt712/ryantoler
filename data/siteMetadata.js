@@ -2,7 +2,7 @@ const siteMetadata = {
   title: 'Ryan Toler',
   author: 'Ryan Toler',
   headerTitle: 'ryantoler',
-  description: 'Welcome to my corner of the internet.',
+  description: "Ryan Toler's personal website and blog.",
   language: 'en-us',
   theme: 'system', // system, dark or light
   siteUrl: 'https://www.ryantoler.dev',
@@ -10,9 +10,10 @@ const siteMetadata = {
   siteLogo: '/static/images/logo.png',
   image: '/static/images/avatar.jpg',
   socialBanner: '/static/images/twitter-card.png',
-  email: 'rtoler3@outlook.com',
+  email: 'rtoler@trek10.com',
   github: 'https://github.com/rdt712',
   twitter: 'https://twitter.com/ryantoler_',
+  twitterHandle: 'ryantoler_',
   facebook: 'https://facebook.com',
   youtube: 'https://youtube.com',
   linkedin: 'https://www.linkedin.com/in/ryantoler/',
@@ -25,12 +26,12 @@ const siteMetadata = {
     plausibleDataDomain: '', // e.g. tailwind-nextjs-starter-blog.vercel.app
     simpleAnalytics: false, // true or false
     umamiWebsiteId: '', // e.g. 123e4567-e89b-12d3-a456-426614174000
-    googleAnalyticsId: 'G-98Q9TL1FZY', // e.g. UA-000000-2 or G-XXXXXXX
+    googleAnalyticsId: process.env.NEXT_PUBLIC_GA_ID,
   },
   newsletter: {
     // supports mailchimp, buttondown, convertkit, klaviyo, revue
     // Please add your .env file and modify it according to your selection
-    provider: 'buttondown',
+    provider: '',
   },
   comment: {
     // If you want to use a commenting system other than giscus you have to add it to the

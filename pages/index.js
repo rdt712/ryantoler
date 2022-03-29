@@ -1,11 +1,8 @@
 import Link from '@/components/Link'
 import { PageSEO } from '@/components/SEO'
-import Tag from '@/components/Tag'
+import Post from '@/components/Post'
 import siteMetadata from '@/data/siteMetadata'
 import { getAllFilesFrontMatter } from '@/lib/mdx'
-import formatDate from '@/lib/utils/formatDate'
-
-// import ShortcutHome from '@/components/ShortcutHome'
 
 import NewsletterForm from '@/components/NewsletterForm'
 
@@ -21,92 +18,59 @@ export default function Home({ posts }) {
   return (
     <>
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
-      <div className="divide-y divide-gray-300 dark:divide-gray-700">
+      <div className="divide-y divide-gray-500 dark:divide-gray-500">
         <div className="space-y-2 pt-6 pb-8 md:space-y-5">
-          {/* <div className="flex items-center justify-between"> */}
-          {/* <div> */}
           <h1 className="text-4xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:leading-10 md:leading-14">
-            I'm <span className="text-primary dark:text-primary">Ryan</span>
+            Hey, I'm{' '}
+            <Link
+              href={`/about`}
+              className="hover-underline-animation text-day-accent dark:text-night-accent"
+            >
+              Ryan
+            </Link>{' '}
+            <span className="wave" role="img" aria-label="Hello">
+              👋🏻
+            </span>
           </h1>
           <p className="font-mono text-lg tracking-tighter text-gray-600 dark:text-gray-400">
-            {siteMetadata.description}
+            I build things.
+            <br />
+            On AWS. And without servers.
+            <br />I also play golf and drink bourbon.
           </p>
-          {/* </div> */}
-          {/* </div> */}
-          {/* <div className="flex w-full justify-center">
-            <div className="mt-2 justify-center">
-              <ShortcutHome />
+          <p className="text-lg font-light tracking-tighter text-gray-600 dark:text-gray-400">
+            Welcome to <span className="font-bold">my corner</span> of the internet.
+          </p>
+        </div>
+        <div className="container mx-auto pt-4 pb-4">
+          <div className="my-4 flex flex-col">
+            <span className="font-poppins title-font text-3xl font-bold">Recent Posts</span>
+            <span className="mb-4 inline-block h-0.5 w-20 rounded bg-day-accent dark:bg-night-accent"></span>
+          </div>
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">
+            {!posts.length && 'No posts found.'}
+            {posts.slice(0, MAX_DISPLAY).map((frontMatter) => {
+              return <Post key={frontMatter.slug} frontMatter={frontMatter}></Post>
+            })}
+          </div>
+          {posts.length > MAX_DISPLAY && (
+            <div className="flex justify-end text-base font-medium leading-6">
+              <Link
+                href="/blog"
+                className="text-day-accent hover:text-day-accent-hover dark:text-night-accent dark:hover:text-night-accent-hover"
+                aria-label="all posts"
+              >
+                All Posts &rarr;
+              </Link>
             </div>
-          </div> */}
+          )}
+          {siteMetadata.newsletter.provider !== '' && (
+            <div className="flex items-center justify-center p-8">
+              <NewsletterForm />
+            </div>
+          )}
         </div>
-        <ul className="divide-y divide-gray-200 dark:divide-gray-700">
-          {!posts.length && 'No posts found.'}
-          {posts.slice(0, MAX_DISPLAY).map((frontMatter) => {
-            const { slug, date, title, summary, tags } = frontMatter
-            return (
-              <li key={slug} className="py-12">
-                <article>
-                  <div className="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">
-                    <dl>
-                      <dt className="sr-only">Published on</dt>
-                      <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
-                        <time dateTime={date}>{formatDate(date)}</time>
-                      </dd>
-                    </dl>
-                    <div className="space-y-5 xl:col-span-3">
-                      <div className="space-y-6">
-                        <div>
-                          <h2 className="text-2xl font-bold leading-8 tracking-tight">
-                            <Link
-                              href={`/blog/${slug}`}
-                              className="text-gray-900 dark:text-gray-100"
-                            >
-                              {title}
-                            </Link>
-                          </h2>
-                          <div className="flex flex-wrap">
-                            {tags.map((tag) => (
-                              <Tag key={tag} text={tag} />
-                            ))}
-                          </div>
-                        </div>
-                        <div className="prose max-w-none text-gray-500 dark:text-gray-400">
-                          {summary}
-                        </div>
-                      </div>
-                      <div className="text-base font-medium leading-6">
-                        <Link
-                          href={`/blog/${slug}`}
-                          className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-                          aria-label={`Read "${title}"`}
-                        >
-                          Read more &rarr;
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                </article>
-              </li>
-            )
-          })}
-        </ul>
       </div>
-      {posts.length > MAX_DISPLAY && (
-        <div className="flex justify-end text-base font-medium leading-6">
-          <Link
-            href="/blog"
-            className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-            aria-label="all posts"
-          >
-            All Posts &rarr;
-          </Link>
-        </div>
-      )}
-      {siteMetadata.newsletter.provider !== '' && (
-        <div className="flex items-center justify-center pt-4">
-          <NewsletterForm />
-        </div>
-      )}
     </>
   )
 }
