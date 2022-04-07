@@ -6,7 +6,7 @@ import ScrollTopAndComment from '@/components/ScrollTopAndComment'
 import SectionContainer from '@/components/SectionContainer'
 import { BlogSEO } from '@/components/SEO'
 import Tag from '@/components/Tag'
-import TOCSideBar from '@/components/TOCSideBar'
+import TOCSticky from '@/components/TOCSticky'
 import siteMetadata from '@/data/siteMetadata'
 
 const editUrl = (fileName) => `${siteMetadata.siteRepo}/blob/master/data/blog/${fileName}`
@@ -25,6 +25,8 @@ const postDateTemplate = { weekday: 'long', year: 'numeric', month: 'long', day:
 
 export default function PostLayout({ frontMatter, authorDetails, toc, next, prev, children }) {
   const { slug, fileName, date, title, image, tags, readingTime } = frontMatter
+
+  console.log(date)
 
   return (
     <SectionContainer>
@@ -56,6 +58,7 @@ export default function PostLayout({ frontMatter, authorDetails, toc, next, prev
                   <dt className="sr-only">Published on</dt>
                   <dd>
                     <time dateTime={date}>
+                      {/* add time to date to prevent date rollback during daylight savings time */}
                       {new Date(date).toLocaleDateString(siteMetadata.locale, postDateTemplate)}
                     </time>
                   </dd>
@@ -71,6 +74,7 @@ export default function PostLayout({ frontMatter, authorDetails, toc, next, prev
                 src={image}
                 alt={title}
                 layout="fill"
+                priority={true}
                 className="my-4 mx-auto overflow-hidden rounded-lg object-cover shadow-lg md:w-3/4"
               />
             </div>
@@ -87,45 +91,11 @@ export default function PostLayout({ frontMatter, authorDetails, toc, next, prev
             className="border-2 border-day bg-day bg-opacity-50 dark:border-night dark:bg-night dark:bg-opacity-75 xl:grid xl:grid-cols-4 xl:gap-x-6"
             style={{ gridTemplateRows: 'auto 1fr' }}
           >
-            {/* <dl className="pt-6 pb-10 xl:border-b xl:border-gray-200 xl:pt-11 xl:dark:border-gray-700">
-              <dt className="sr-only">Authors</dt>
-              <dd>
-                <ul className="flex justify-center space-x-8 sm:space-x-12 xl:block xl:space-x-0 xl:space-y-8">
-                  {authorDetails.map((author) => (
-                    <li className="flex items-center space-x-2" key={author.name}>
-                      {author.avatar && (
-                        <Image
-                          src={author.avatar}
-                          width="38px"
-                          height="38px"
-                          alt="avatar"
-                          className="h-10 w-10 rounded-full"
-                        />
-                      )}
-                      <dl className="whitespace-nowrap text-sm font-medium leading-5">
-                        <dt className="sr-only">Name</dt>
-                        <dd className="text-gray-900 dark:text-gray-100">{author.name}</dd>
-                        <dt className="sr-only">Twitter</dt>
-                        <dd>
-                          {author.twitter && (
-                            <Link
-                              href={author.twitter}
-                              className="text-day-accent hover:text-day-accent-hover dark:text-night-accent dark:hover:text-night-accent-hover"
-                            >
-                              {author.twitter.replace('https://twitter.com/', '@')}
-                            </Link>
-                          )}
-                        </dd>
-                      </dl>
-                    </li>
-                  ))}
-                </ul>
-              </dd>
-            </dl> */}
             <div className="prose max-w-none pt-10 pb-8 dark:prose-dark xl:col-span-3 xl:row-span-2">
               {children}
             </div>
-            <TOCSideBar toc={toc} toHeading={3} />
+            {/* <TOCSticky /> */}
+            <TOCSticky toc={toc} toHeading={3} />
             {/* <div className="sticky top-4 hidden xl:top-8 xl:block">
               <div className="mb-4 px-2 pl-10 text-sm tracking-tight text-gray-500 dark:text-gray-500">
                 <p className="mb-4 text-xl font-bold">On this page</p>

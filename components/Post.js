@@ -3,7 +3,7 @@ import Link from './Link'
 import formatDate from '@/lib/utils/formatDate'
 
 export default function Post({ frontMatter }) {
-  const { slug, date, title, image, tags, summary, permalink } = frontMatter
+  const { slug, date, title, image, tags, summary } = frontMatter
   return (
     <div className="group w-full">
       <Link

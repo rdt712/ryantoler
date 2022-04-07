@@ -62,6 +62,9 @@ module.exports = {
               fontWeight: '600',
               color: theme('colors.gray.900'),
             },
+            'h2, h3': {
+              'scroll-margin-top': '16px',
+            },
             'h4,h5,h6': {
               color: theme('colors.gray.900'),
             },

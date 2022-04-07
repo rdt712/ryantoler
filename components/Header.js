@@ -14,6 +14,8 @@ export default function Header() {
   let path
   if (router.pathname.endsWith('/[...slug]')) {
     path = router.pathname.replace('/[...slug]', '')
+  } else if (router.pathname.endsWith('/[tag]')) {
+    path = router.pathname.replace('/[tag]', '')
   } else if (router.pathname.endsWith('/')) {
     path = router.pathname + 'home'
   } else {
