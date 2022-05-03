@@ -94,31 +94,7 @@ export default function PostLayout({ frontMatter, authorDetails, toc, next, prev
             <div className="prose max-w-none pt-10 pb-8 dark:prose-dark xl:col-span-3 xl:row-span-2">
               {children}
             </div>
-            {/* <TOCSticky /> */}
-            <TOCSticky toc={toc} toHeading={3} />
-            {/* <div className="sticky top-4 hidden xl:top-8 xl:block">
-              <div className="mb-4 px-2 pl-10 text-sm tracking-tight text-gray-500 dark:text-gray-500">
-                <p className="mb-4 text-xl font-bold">On this page</p>
-                <div className="mt-1 transform space-y-1 transition duration-500 ease-in-out">
-                  <div
-                    className="PageScroll_progress-wrapper__1EmZx bg-gray-300 dark:bg-gray-500"
-                    style={{ opacity: 0.5 }}
-                  >
-                    <div
-                      className="PageScroll_progress-track__3DWoM bg-gray-500 dark:bg-gray-300"
-                      style={{ height: '6%' }}
-                    ></div>
-                  </div>
-                  <div className="transition-all duration-500 ease-in-out">
-                    <a href="#defining-a-flag" className="active-link">
-                      <p data-before="❯" className="relative pl-2">
-                        Defining a Flag
-                      </p>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div> */}
+            <TOCSticky toc={toc} />
 
             {/* <footer>
               <div className="divide-gray-200 text-sm font-medium leading-5 dark:divide-gray-700 xl:col-start-1 xl:row-start-2 xl:divide-y">

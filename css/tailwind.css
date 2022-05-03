@@ -38,14 +38,10 @@
 }
 
 .pagescroll-progress-wrapper {
-  width: 2px;
-  height: 100%;
-  left: -1rem;
-  position: absolute;
-  transition: opacity 0.75s ease-in-out;
+  @apply absolute -left-4 h-full w-0.5 transition-opacity duration-700 ease-in-out;
 }
 
-.pagescroll-progress-track {
+.pagescroll-progress-wrapper .pagescroll-progress-track {
   height: 0;
   width: 100%;
   -webkit-animation: pagescroll-progress-bar 1.5s ease-in-out;
@@ -104,6 +100,22 @@
     color: #0ea5e9;
     content: '❯';
     padding: 0 0.5rem;
+  }
+
+  .current-active-section p {
+    font-weight: 500;
+    color: #18191a;
+  }
+
+  .dark .current-active-section p {
+    color: #f8f6f4;
+  }
+
+  .current-active-section p:before {
+    position: absolute;
+    left: -4px;
+    color: #0ea5e9;
+    content: '❯';
   }
 }
 
