@@ -5,7 +5,7 @@ import PageTitle from '@/components/PageTitle'
 import ScrollTopAndComment from '@/components/ScrollTopAndComment'
 import SectionContainer from '@/components/SectionContainer'
 import { BlogSEO } from '@/components/SEO'
-import Tag from '@/components/Tag'
+import Post from '@/components/Post'
 import TOCSticky from '@/components/TOCSticky'
 import siteMetadata from '@/data/siteMetadata'
 
@@ -58,7 +58,6 @@ export default function PostLayout({ frontMatter, authorDetails, toc, next, prev
                   <dt className="sr-only">Published on</dt>
                   <dd>
                     <time dateTime={date}>
-                      {/* add time to date to prevent date rollback during daylight savings time */}
                       {new Date(date).toLocaleDateString(siteMetadata.locale, postDateTemplate)}
                     </time>
                   </dd>
@@ -95,55 +94,6 @@ export default function PostLayout({ frontMatter, authorDetails, toc, next, prev
               {children}
             </div>
             <TOCSticky toc={toc} />
-
-            {/* <footer>
-              <div className="divide-gray-200 text-sm font-medium leading-5 dark:divide-gray-700 xl:col-start-1 xl:row-start-2 xl:divide-y">
-                {tags && (
-                  <div className="py-4 xl:py-8">
-                    <h2 className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
-                      Tags
-                    </h2>
-                    <div className="flex flex-wrap">
-                      {tags.map((tag) => (
-                        <Tag key={tag} text={tag} />
-                      ))}
-                    </div>
-                  </div>
-                )}
-                {(next || prev) && (
-                  <div className="flex justify-between py-4 xl:block xl:space-y-8 xl:py-8">
-                    {prev && (
-                      <div>
-                        <h2 className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
-                          Previous Article
-                        </h2>
-                        <div className="text-day-accent hover:text-day-accent-hover dark:text-night-accent dark:hover:text-night-accent-hover">
-                          <Link href={`/blog/${prev.slug}`}>{prev.title}</Link>
-                        </div>
-                      </div>
-                    )}
-                    {next && (
-                      <div>
-                        <h2 className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
-                          Next Article
-                        </h2>
-                        <div className="text-day-accent hover:text-day-accent-hover dark:text-night-accent dark:hover:text-night-accent-hover">
-                          <Link href={`/blog/${next.slug}`}>{next.title}</Link>
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                )}
-              </div>
-              <div className="pt-4 xl:pt-8">
-                <Link
-                  href="/blog"
-                  className="text-day-accent hover:text-day-accent-hover dark:text-night-accent dark:hover:text-night-accent-hover"
-                >
-                  &larr; Back to the blog
-                </Link>
-              </div>
-            </footer> */}
           </div>
           <div className="border-b border-t border-gray-400 py-4 text-sm dark:border-gray-700">
             <Link href={discussUrl(slug)} rel="nofollow">
@@ -153,6 +103,20 @@ export default function PostLayout({ frontMatter, authorDetails, toc, next, prev
             <Link href={shareUrl(slug, title)}>{'Share on Twitter'}</Link>
           </div>
           <Comments frontMatter={frontMatter} />
+          <footer>
+            <div className="my-4 flex flex-col">
+              <span className="title-font text-3xl font-bold">Read More</span>
+              <span className="mb-4 inline-block h-0.5 w-20 rounded bg-day-accent dark:bg-night-accent"></span>
+            </div>
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+              {(next || prev) && (
+                <div className="flex justify-between py-4 xl:block xl:space-y-8 xl:py-8">
+                  {next && <Post key={next.slug} frontMatter={next}></Post>}
+                  {prev && <Post key={prev.slug} frontMatter={prev}></Post>}
+                </div>
+              )}
+            </div>
+          </footer>
         </div>
       </article>
     </SectionContainer>
