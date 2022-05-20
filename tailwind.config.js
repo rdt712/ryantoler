@@ -2,10 +2,16 @@ const defaultTheme = require('tailwindcss/defaultTheme')
 const colors = require('tailwindcss/colors')
 
 module.exports = {
-  mode: 'jit',
-  purge: {
-    content: ['./pages/**/*.js', './components/**/*.js', './layouts/**/*.js', './lib/**/*.js'],
+  experimental: {
+    optimizeUniversalDefaults: true,
   },
+  content: [
+    './pages/**/*.js',
+    './components/**/*.js',
+    './layouts/**/*.js',
+    './lib/**/*.js',
+    './data/**/*.mdx',
+  ],
   darkMode: 'class',
   theme: {
     extend: {
@@ -19,29 +25,28 @@ module.exports = {
         14: '3.5rem',
       },
       fontFamily: {
-        sans: ['Inter', ...defaultTheme.fontFamily.sans],
+        sans: ['InterVariable', ...defaultTheme.fontFamily.sans],
       },
       colors: {
-        blue: colors.lightBlue,
-        code: {
-          green: '#b5f4a5',
-          yellow: '#ffe484',
-          purple: '#d9a9ff',
-          red: '#ff8383',
-          blue: '#93ddfd',
-          white: '#fff',
-        },
+        gray: colors.neutral,
+        day: '#f8f6f4',
+        night: '#18191a',
+        'day-accent': '#0284c7', // 600
+        'day-accent-hover': '#0369a1', // 700
+        'night-accent': '#0ea5e9', // 500
+        'night-accent-hover': '#38bdf8', // 400
+        // accent: '#1e90ff',
       },
       typography: (theme) => ({
         DEFAULT: {
           css: {
             color: theme('colors.gray.700'),
             a: {
-              color: theme('colors.blue.500'),
+              color: theme('colors.day-accent'),
               '&:hover': {
-                color: theme('colors.blue.600'),
+                color: `${theme('colors.day-accent-hover')} !important`,
               },
-              code: { color: theme('colors.blue.400') },
+              code: { color: theme('night-accent-hover') },
             },
             h1: {
               fontWeight: '700',
@@ -57,28 +62,44 @@ module.exports = {
               fontWeight: '600',
               color: theme('colors.gray.900'),
             },
+            'h2, h3': {
+              'scroll-margin-top': '16px',
+            },
             'h4,h5,h6': {
               color: theme('colors.gray.900'),
+            },
+            pre: {
+              backgroundColor: theme('colors.gray.800'),
             },
             code: {
               color: theme('colors.pink.500'),
               backgroundColor: theme('colors.gray.100'),
-              paddingLeft: '4px',
-              paddingRight: '4px',
-              paddingTop: '2px',
-              paddingBottom: '2px',
+              padding: '0.5rem',
               borderRadius: '0.25rem',
             },
-            'code:before': {
+            'code::before': {
               content: 'none',
             },
-            'code:after': {
+            'code::after': {
               content: 'none',
+            },
+            details: {
+              backgroundColor: theme('colors.gray.200'),
+              borderColor: theme('colors.gray.300'),
+              borderRadius: '0.25rem',
+              borderWidth: '1px',
+              padding: '0.5rem',
+              marginTop: '0.5rem',
+              marginBottom: '0.5rem',
+              cursor: 'pointer',
+              '--tw-shadow': '0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px 0 rgba(0,0,0,0.06)',
+              '--tw-border-opacity': '1',
+              '--tw-bg-opacity': '0.5',
             },
             hr: { borderColor: theme('colors.gray.200') },
-            'ol li:before': {
+            'ol li:before,ul li:before': {
               fontWeight: '600',
-              color: theme('colors.gray.500'),
+              color: theme('colors.day-accent'),
             },
             'ul li:before': {
               backgroundColor: theme('colors.gray.500'),
@@ -94,11 +115,11 @@ module.exports = {
           css: {
             color: theme('colors.gray.300'),
             a: {
-              color: theme('colors.blue.500'),
+              color: theme('colors.night-accent'),
               '&:hover': {
-                color: theme('colors.blue.400'),
+                color: `${theme('colors.night-accent-hover')} !important`,
               },
-              code: { color: theme('colors.blue.400') },
+              code: { color: theme('colors.night-accent-hover') },
             },
             h1: {
               fontWeight: '700',
@@ -120,17 +141,29 @@ module.exports = {
             code: {
               backgroundColor: theme('colors.gray.800'),
             },
+            details: {
+              backgroundColor: theme('colors.gray.800'),
+              borderColor: theme('colors.gray.600'),
+              '--tw-border-opacity': '1',
+              '--tw-bg-opacity': '1',
+            },
             hr: { borderColor: theme('colors.gray.700') },
-            'ol li:before': {
+            'ol li:before,ul li:before': {
+              fontWeight: '600',
+              color: theme('colors.night-accent'),
+            },
+            'ol li::marker': {
               fontWeight: '600',
               color: theme('colors.gray.400'),
             },
-            'ul li:before': {
+            'ul li::marker': {
               backgroundColor: theme('colors.gray.400'),
             },
             strong: { color: theme('colors.gray.100') },
             thead: {
-              color: theme('colors.gray.100'),
+              th: {
+                color: theme('colors.gray.100'),
+              },
             },
             tbody: {
               tr: {
@@ -144,10 +177,29 @@ module.exports = {
           },
         },
       }),
+      keyframes: {
+        shrink: {
+          '0% , 100%': {
+            height: '0.75rem',
+          },
+          '50%': {
+            height: '0.375rem',
+          },
+        },
+        expand: {
+          '0% , 100%': {
+            height: '0.375rem',
+          },
+          '50%': {
+            height: '0.75rem',
+          },
+        },
+      },
+      animation: {
+        shrink: 'shrink 1.5s infinte',
+        expand: 'expand 1.5s infinte',
+      },
     },
-  },
-  variants: {
-    typography: ['dark'],
   },
   plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
 }

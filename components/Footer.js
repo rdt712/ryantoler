@@ -1,26 +1,32 @@
 import Link from './Link'
 import siteMetadata from '@/data/siteMetadata'
+import HeaderIcon from '@/components/header-icons'
 import SocialIcon from '@/components/social-icons'
 
 export default function Footer() {
   return (
-    <footer>
-      <div className="flex flex-col items-center mt-16">
-        <div className="flex mb-3 space-x-4">
-          <SocialIcon kind="mail" href={`mailto:${siteMetadata.email}`} size="6" />
-          <SocialIcon kind="github" href={siteMetadata.github} size="6" />
-          {/* <SocialIcon kind="facebook" href={siteMetadata.facebook} size="6" /> */}
-          {/* <SocialIcon kind="youtube" href={siteMetadata.youtube} size="6" /> */}
-          <SocialIcon kind="linkedin" href={siteMetadata.linkedin} size="6" />
-          <SocialIcon kind="instagram" href={siteMetadata.instagram} size="6" />
-          <SocialIcon kind="twitter" href={siteMetadata.twitter} size="6" />
-        </div>
-        <div className="flex mb-2 space-x-2 text-sm text-gray-500 dark:text-gray-400">
-          <Link href="/">{siteMetadata.author}</Link>
-          <div>{` • `}</div>
+    <footer className="border-t border-gray-500 dark:border-gray-500">
+      <div className="mt-4 mb-4 flex flex-col items-center justify-between sm:flex-row">
+        <div className="mb-2 flex space-x-2 text-sm text-gray-500 dark:text-gray-400">
           <div>{`© ${new Date().getFullYear()}`}</div>
-          <div>{` • `}</div>
-          <Link href="/tags">Tags</Link>
+          <Link className="hover:text-day-accent-hover dark:hover:text-night-accent-hover" href="/">
+            {siteMetadata.title}
+          </Link>
+        </div>
+        <div className="mb-2 flex space-x-2 text-sm text-gray-500 dark:text-gray-400">
+          <Link
+            className="inline-flex flex-row hover:text-day-accent dark:hover:text-night-accent"
+            href="/tags"
+          >
+            <HeaderIcon kind="tags" />
+            Tags
+          </Link>
+        </div>
+        <div className="mb-2 flex space-x-4">
+          <SocialIcon kind="github" href={siteMetadata.github} size="5" />
+          <SocialIcon kind="linkedin" href={siteMetadata.linkedin} size="5" />
+          <SocialIcon kind="twitter" href={siteMetadata.twitter} size="5" />
+          <SocialIcon kind="rss" href="/feed.xml" size="5" />
         </div>
       </div>
     </footer>
