@@ -26,8 +26,6 @@ const postDateTemplate = { weekday: 'long', year: 'numeric', month: 'long', day:
 export default function PostLayout({ frontMatter, authorDetails, toc, next, prev, children }) {
   const { slug, fileName, date, title, image, tags, readingTime } = frontMatter
 
-  console.log(date)
-
   return (
     <SectionContainer>
       <BlogSEO
@@ -68,22 +66,8 @@ export default function PostLayout({ frontMatter, authorDetails, toc, next, prev
             </div>
           </header>
           <div className="divide-y divide-gray-200 pb-8 dark:divide-gray-700 xl:divide-y-0">
-            <div className="relative flex flex-col items-center">
-              <Image
-                src={image}
-                alt={title}
-                layout="fill"
-                priority={true}
-                className="my-4 mx-auto overflow-hidden rounded-lg object-cover shadow-lg md:w-3/4"
-              />
-            </div>
-          </div>
-          <div className="flex flex-col">
-            <div
-              className="divide-y divide-gray-200 pb-8 dark:divide-gray-700 xl:grid xl:grid-cols-4 xl:gap-x-6 xl:divide-y-0"
-              style={{ gridTemplateRows: 'auto 1fr' }}
-            >
-              <div className="prose max-w-none pt-10 pb-8 dark:prose-dark xl:col-span-3 xl:row-span-2"></div>
+            <div className="relative my-4 mx-auto flex flex-col items-center overflow-hidden rounded-lg object-cover shadow-lg md:w-3/4">
+              <Image src={image} alt={title} width={800} height={600} priority={true} />
             </div>
           </div>
           <div
