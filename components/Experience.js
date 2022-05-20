@@ -11,186 +11,268 @@ export default function Experience() {
       <div className="ml-[22px]">
         <div className="flex flex-col place-items-start border-l border-b border-gray-300 pl-4 dark:border-gray-700">
           <span className="relative mt-4 ml-[-40px] inline-block rounded border border-gray-700 bg-day py-1 px-2 text-xs font-medium hover:border-day-accent-hover dark:bg-night dark:hover:border-night-accent-hover">
-            March 2022 - Current
+            Mar 2022 - Present
           </span>
-          <div className="flex flex-col place-content-between py-4">
-            <div className="relative flex flex-row place-items-center whitespace-pre font-bold">
-              <HeaderIcon kind="about" size="24" />
-              <Link className="text-2xl" href="https://www.trek10.com">
-                Trek10, Inc.
-              </Link>
+          <div className="w-full py-4">
+            <div className="flex w-full flex-col justify-between whitespace-pre font-bold sm:grid sm:grid-cols-3 sm:gap-x-8 sm:space-y-0">
+              <span className="col-span-2 inline-flex place-items-center">
+                <HeaderIcon kind="about" size="24" />
+                <Link
+                  className="whitespace-normal break-words text-2xl hover:text-day-accent-hover dark:hover:text-night-accent-hover"
+                  href="https://www.trek10.com"
+                >
+                  Trek10, Inc.
+                </Link>
+              </span>
+              <span className="xs:text-left col-span-1 mx-4 mt-2 text-sm font-bold text-gray-700 dark:text-gray-300 sm:text-right">
+                South Bend, IN
+              </span>
             </div>
-            <span className="mx-4 text-sm font-bold text-gray-700 dark:text-gray-300">
-              › Cloud Architect
-            </span>
-            <div className="prose mt-4 dark:prose-dark">
-              <ul className="block space-y-2 text-base">
-                <li>
-                  Collaborating on building consumer revenue products, working closely with Product
-                  Managers, Engineering Managers and various other stakeholders across Condé Nast.
-                </li>
-              </ul>
-            </div>
+          </div>
+          <span className="m-4 text-sm font-bold text-gray-700 dark:text-gray-300">
+            › Cloud Architect
+          </span>
+          <p className="text-tighter text-sm font-light text-gray-700 dark:text-gray-300"></p>
+          <div className="prose mt-4 mb-4 dark:prose-dark">
+            <ul className="block space-y-4 text-base">
+              <li>I build stuff on AWS.</li>
+            </ul>
           </div>
         </div>
         <div className="flex flex-col place-items-start border-l border-b border-gray-300 pl-4 dark:border-gray-700">
           <span className="relative mt-4 ml-[-40px] inline-block rounded border border-gray-700 bg-day py-1 px-2 text-xs font-medium hover:border-day-accent-hover dark:bg-night dark:hover:border-night-accent-hover">
-            Mar 2019 - Jan 2021
+            Jan 2020 - Present
           </span>
-          <div className="flex flex-col place-content-between py-4">
-            <div className="relative flex flex-row place-items-center whitespace-pre font-bold">
-              <HeaderIcon kind="about" size="24" />
-              <Link className="text-2xl" href="https://www.trek10.com">
-                Trek10, Inc.
-              </Link>
-            </div>
-            <span className="mx-4 text-sm font-bold text-gray-700 dark:text-gray-300">
-              › Engineer - Web Development
-            </span>
-            <div className="prose mt-4 dark:prose-dark">
-              <ul className="block space-y-2 text-base">
-                <li>
-                  Developed a micro-frontend framework to run multiple frontend applications on the
-                  same page, where each application can be built independently and ships with
-                  necessary JavaScript and bundled assets.
-                </li>
-                <li>
-                  Improved page load times by ~15% by optimizing build files, using Webpack plugins,
-                  to split large javascript files to multiple chunks and employing an on-demand lazy
-                  loading of assets.
-                </li>
-                <li>
-                  Optimized server query response time from 17ms to 3ms by restructuring API at
-                  NodeJS proxy layer.
-                </li>
-                <li>
-                  Collaborated with DevSecOps to optimize build and deployment pipelines, which
-                  helped reduce the time to setup a new infrastructure for test-driven deployment of
-                  web applications and NodeJS applications.
-                </li>
-              </ul>
+          <div className="w-full py-4">
+            <div className="flex w-full flex-col justify-between whitespace-pre font-bold sm:grid sm:grid-cols-3 sm:gap-x-8 sm:space-y-0">
+              <span className="col-span-2 inline-flex place-items-center">
+                <HeaderIcon kind="about" size="24" />
+                <Link
+                  className="whitespace-normal break-words text-2xl hover:text-day-accent-hover dark:hover:text-night-accent-hover"
+                  href="https://omscs.gatech.edu/"
+                >
+                  Georgia Institute of Technology
+                </Link>
+              </span>
+              <span className="xs:text-left col-span-1 mx-4 mt-2 text-sm font-bold text-gray-700 dark:text-gray-300 sm:text-right">
+                Atlanta, GA
+              </span>
             </div>
           </div>
-        </div>
-        {/* <div className="flex flex-col place-items-start border-l border-b border-gray-300 pl-4 dark:border-gray-700">
-          <span className="relative mt-4 ml-[-40px] inline-block rounded border border-gray-700 bg-day py-1 px-2 text-xs font-medium hover:border-accent dark:bg-night">
-            Feb 2017 - Dec 2018
+          <span className="m-4 text-sm font-bold text-gray-700 dark:text-gray-300">
+            › OMSCS Instructional Associate
           </span>
-          <div className="flex flex-col place-content-between py-4">
-            <div className="relative flex flex-row place-items-center whitespace-pre font-bold">
-              <svg
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                className="group-hover:animate-spin-slow mr-1 text-gray-900 dark:text-gray-100"
-                style="width:24px;height:24px"
-                role="presentation"
+          <p className="text-tighter text-sm font-light text-gray-700 dark:text-gray-300">
+            Instructional Associate for{' '}
+            <span>
+              <Link
+                className="whitespace-normal break-words hover:text-day-accent-hover dark:hover:text-night-accent-hover"
+                href="https://omscs.gatech.edu/cse-6242-data-visual-analytics"
               >
-                <path
-                  d="M20,6C20.58,6 21.05,6.2 21.42,6.59C21.8,7 22,7.45 22,8V19C22,19.55 21.8,20 21.42,20.41C21.05,20.8 20.58,21 20,21H4C3.42,21 2.95,20.8 2.58,20.41C2.2,20 2,19.55 2,19V8C2,7.45 2.2,7 2.58,6.59C2.95,6.2 3.42,6 4,6H8V4C8,3.42 8.2,2.95 8.58,2.58C8.95,2.2 9.42,2 10,2H14C14.58,2 15.05,2.2 15.42,2.58C15.8,2.95 16,3.42 16,4V6H20M4,8V19H20V8H4M14,6V4H10V6H14Z"
-                  fill="currentColor"
-                ></path>
-              </svg>
-              <a
-                className="text-2xl"
-                href="https://www.linkedin.com/company/widasconcepts-india-private-limited"
-                target="_blank"
-                rel="noreferrer nofollow"
+                CSE 6242 - Data and Visual Analytics
+              </Link>
+            </span>{' '}
+            &{' '}
+            <span>
+              <Link
+                className="whitespace-normal break-words hover:text-day-accent-hover dark:hover:text-night-accent-hover"
+                href="https://omscs.gatech.edu/cs-7646-machine-learning-trading"
               >
-                WidasConcepts
-              </a>
-            </div>
-            <span className="mx-4 text-sm font-bold text-gray-700 dark:text-gray-300">
-              › Full Stack Web Developer
+                CS 7646 - Machine Learning for Trading
+              </Link>
             </span>
-            <div className="prose mt-4 dark:prose-dark">
-              <ul className="block space-y-2 text-base">
-                <li>
-                  Spearheaded a team of 5 developers, following Agile Methodologies to effectively
-                  design, develop and test Angular based web applications, with 100% on time
-                  delivery.
-                </li>
-                <li>
-                  Built, tested and deployed scalable, high availability, modular and secure web
-                  applications with emphasis on user accessibility, based on ReactJS and Angular
-                  frameworks.
-                </li>
-                <li>
-                  Configured Docker deployment solutions using Gitlab CI for JavaScript based Web
-                  and Server side applications.
-                </li>
-                <li>
-                  Developed a Live Tracking Platform using NodeJS and Socket.io to provide near real
-                  time tracking of on-road vehicles using OBD systems, and rendered the data on the
-                  front-end using Google Maps APIs.
-                </li>
-                <li>
-                  Designed &amp; developed telematics products, from the Android app in Java, to web
-                  applications in ReactJS and Angular, and several backend systems in NodeJS which
-                  required rapid transition between different technologies.
-                </li>
-                <li>
-                  Helped formulate and document software development and deployment best practices,
-                  by sharing sample code changes from various development teams within the
-                  organization.
-                </li>
-              </ul>
-            </div>
+            {'.'}
+          </p>
+          <div className="prose mt-4 mb-4 dark:prose-dark">
+            <ul className="block space-y-4 text-base">
+              <li>
+                Grade assignments and projects, hold weekly office hours, and respond to students'
+                questions in Piazza - an online chat forum used for both classes.
+              </li>
+              <li>
+                Consistently improve the overall quality of both classes by updating the content of
+                assignments each semester and building out automated grading scripts when
+                applicable.
+              </li>
+            </ul>
           </div>
         </div>
         <div className="flex flex-col place-items-start border-l border-b border-gray-300 pl-4 dark:border-gray-700">
-          <span className="relative mt-4 ml-[-40px] inline-block rounded border border-gray-700 bg-day py-1 px-2 text-xs font-medium hover:border-accent dark:bg-night">
-            Oct 2013 - Oct 2016
+          <span className="relative mt-4 ml-[-40px] inline-block rounded border border-gray-700 bg-day py-1 px-2 text-xs font-medium hover:border-day-accent-hover dark:bg-night dark:hover:border-night-accent-hover">
+            Dec 2020 - Mar 2022
           </span>
-          <div className="flex flex-col place-content-between py-4">
-            <div className="relative flex flex-row place-items-center whitespace-pre font-bold">
-              <svg
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                className="group-hover:animate-spin-slow mr-1 text-gray-900 dark:text-gray-100"
-                style="width:24px;height:24px"
-                role="presentation"
-              >
-                <path
-                  d="M20,6C20.58,6 21.05,6.2 21.42,6.59C21.8,7 22,7.45 22,8V19C22,19.55 21.8,20 21.42,20.41C21.05,20.8 20.58,21 20,21H4C3.42,21 2.95,20.8 2.58,20.41C2.2,20 2,19.55 2,19V8C2,7.45 2.2,7 2.58,6.59C2.95,6.2 3.42,6 4,6H8V4C8,3.42 8.2,2.95 8.58,2.58C8.95,2.2 9.42,2 10,2H14C14.58,2 15.05,2.2 15.42,2.58C15.8,2.95 16,3.42 16,4V6H20M4,8V19H20V8H4M14,6V4H10V6H14Z"
-                  fill="currentColor"
-                ></path>
-              </svg>
-              <a
-                className="text-2xl"
-                href="https://ve.linkedin.com/company/humesis-corporation"
-                target="_blank"
-                rel="noreferrer nofollow"
-              >
-                Humesis
-              </a>
-            </div>
-            <span className="mx-4 text-sm font-bold text-gray-700 dark:text-gray-300">
-              › Software Engineer - Mobile &amp; Web
-            </span>
-            <div className="prose mt-4 dark:prose-dark">
-              <ul className="block space-y-2 text-base">
-                <li>
-                  Integrated REST APIs for Android &amp; Angular based Web apps to consume JSON data
-                  and developed reusable code and libraries to facilitate smooth future usage.
-                </li>
-                <li>
-                  Improved application resiliency by setting up a pre-commit hook to run tests,
-                  before code is committed and pushed to reduce the risk of breaking live production
-                  applications after enabling new features and bug fixes.
-                </li>
-                <li>
-                  Designed and Built an all in one Cloud Storage application using APIs from Google
-                  Drive, OneDrive, Box, Dropbox.
-                </li>
-                <li>
-                  Built prototypes for Android and Web applications integrating with 3rd party APIs
-                  for modules pertaining to User Identity Management using Google, Facebook,
-                  Microsoft APIs.
-                </li>
-              </ul>
+          <div className="w-full py-4">
+            <div className="flex w-full flex-col justify-between whitespace-pre font-bold sm:grid sm:grid-cols-3 sm:gap-x-8 sm:space-y-0">
+              <span className="col-span-2 inline-flex place-items-center">
+                <HeaderIcon kind="about" size="24" />
+                <Link
+                  className="whitespace-normal break-words text-2xl hover:text-day-accent-hover dark:hover:text-night-accent-hover"
+                  href="https://www.geaviation.com/"
+                >
+                  GE Aviation
+                </Link>
+              </span>
+              <span className="xs:text-left col-span-1 mx-4 mt-2 text-sm font-bold text-gray-700 dark:text-gray-300 sm:text-right">
+                Cincinnati, OH
+              </span>
             </div>
           </div>
-        </div> */}
+          <span className="m-4 text-sm font-bold text-gray-700 dark:text-gray-300">
+            › Staff Software Engineer
+          </span>
+          <p className="text-tighter text-sm font-light text-gray-700 dark:text-gray-300">
+            Promoted to Staff Software Engineer on the core asset data team.
+          </p>
+          <div className="prose mt-4 mb-4 dark:prose-dark">
+            <ul className="block space-y-4 text-base">
+              <li>
+                Develop scalable and performant event driven services built on AWS Serverless
+                technologies to process and store thousands of asset change events per minute in an
+                API consumable format for our customers.
+              </li>
+              <li>Provide technical leadership to an agile team of 5-7.</li>
+              <li>
+                Work with product line leaders and architects to translate business requirements and
+                vision into user stories and develop multi generation software technology plans.
+              </li>
+              <li>
+                Influence and lead the adoption of AWS Serverless technologies by implementing
+                serverless application best practices.
+              </li>
+              <li>
+                Architected and developed reusable middleware to ensure each service has structured
+                logging, idempotency, and the correct configuration.
+              </li>
+              <li>
+                Architected and developed a serverless failed event dashboard using AWS Lambda, API
+                Gateway, Event Bridge, and DynamoDB to quickly capture and replay asset change
+                events.
+              </li>
+              <li>
+                Architected and developed a CI/CD pipeline using AWS Code Pipeline, Code Build, and
+                Code Deploy for the core asset data team's services which includes automated unit,
+                integration, and regression tests.
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div className="flex flex-col place-items-start border-l border-b border-gray-300 pl-4 dark:border-gray-700">
+          <span className="relative mt-4 ml-[-40px] inline-block rounded border border-gray-700 bg-day py-1 px-2 text-xs font-medium hover:border-day-accent-hover dark:bg-night dark:hover:border-night-accent-hover">
+            Aug 2018 - Dec 2020
+          </span>
+          <div className="w-full py-4">
+            <div className="flex w-full flex-col justify-between whitespace-pre font-bold sm:grid sm:grid-cols-3 sm:gap-x-8 sm:space-y-0">
+              <span className="col-span-2 inline-flex place-items-center">
+                <HeaderIcon kind="about" size="24" />
+                <Link
+                  className="whitespace-normal break-words text-2xl hover:text-day-accent-hover dark:hover:text-night-accent-hover"
+                  href="https://www.geaviation.com/"
+                >
+                  GE Aviation
+                </Link>
+              </span>
+              <span className="xs:text-left col-span-1 mx-4 mt-2 text-sm font-bold text-gray-700 dark:text-gray-300 sm:text-right">
+                Cincinnati, OH
+              </span>
+            </div>
+          </div>
+          <span className="m-4 text-sm font-bold text-gray-700 dark:text-gray-300">
+            › Senior Software Engineer
+          </span>
+          <p className="text-tighter text-sm font-light text-gray-700 dark:text-gray-300">
+            Senior backend software engineer and AWS cloud architect working on GE Aviation's
+            Customer Portals - a web application for airline customers to view, analyze, and manage
+            their fleet of jet engines.
+          </p>
+          <div className="prose mt-4 mb-4 dark:prose-dark">
+            <ul className="block space-y-4 text-base">
+              <li>
+                Utilized cloud native services such as AWS Lambda, API Gateway, DynamoDB, Aurora,
+                S3, ElasticSearch, CloudFront, SQS, SNS, and Secrets Manager to re- architect legacy
+                on-premise applications and services.
+              </li>
+              <li>
+                Architected and developed a solution that utilizes AWS CloudFront's global edge
+                locations to increase download speeds of large (3-6 GB) jet engine manuals on the
+                Portal by 7x on average which saved GE Aviation $0.3MM/year in engine manual
+                shipping costs.
+              </li>
+              <li>
+                Architected and developed a serverless audit logging solution using AWS Lambda, API
+                Gateway, SQS, and DynamoDB that is in use by 8 backend services for tracking
+                administrative actions for compliance purposes.
+              </li>
+              <li>
+                Architected and developed a CI/CD pipeline using AWS Code Pipeline, Code Build, and
+                Code Deploy for the Customer Portals' backend services and AWS Lambda functions
+                built using SAM.
+              </li>
+              <li>
+                Led GE Aviation's Dev Chapter, an extracurricular internal group at GE Aviation that
+                develops and hosts coding dojos and teaches new technologies and coding best
+                practices.
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div className="flex flex-col place-items-start border-l border-b border-gray-300 pl-4 dark:border-gray-700">
+          <span className="relative mt-4 ml-[-40px] inline-block rounded border border-gray-700 bg-day py-1 px-2 text-xs font-medium hover:border-day-accent-hover dark:bg-night dark:hover:border-night-accent-hover">
+            Jul 2016 - Aug 2018
+          </span>
+          <div className="w-full py-4">
+            <div className="flex w-full flex-col justify-between whitespace-pre font-bold sm:grid sm:grid-cols-3 sm:gap-x-8 sm:space-y-0">
+              <span className="col-span-2 inline-flex place-items-center">
+                <HeaderIcon kind="about" size="24" />
+                <Link
+                  className="whitespace-normal break-words text-2xl hover:text-day-accent-hover dark:hover:text-night-accent-hover"
+                  href="https://www.geaviation.com/"
+                >
+                  GE Aviation
+                </Link>
+              </span>
+              <span className="xs:text-left col-span-1 mx-4 mt-2 text-sm font-bold text-gray-700 dark:text-gray-300 sm:text-right">
+                Cincinnati, OH
+              </span>
+            </div>
+          </div>
+          <span className="m-4 text-sm font-bold text-gray-700 dark:text-gray-300">
+            › Digital Technology Leadership Program
+          </span>
+          <p className="text-tighter text-sm font-light text-gray-700 dark:text-gray-300">
+            A full time, two-year leadership program with four, six-month rotations that focus on
+            building the necessary technical and leadership skills in software and information
+            technology.
+          </p>
+          <div className="prose mt-4 mb-4 dark:prose-dark">
+            <ul className="block space-y-4 text-base">
+              <li>
+                <strong>Infrastructure Architect (1st Rotation)</strong> - Utilized Chef to automate
+                the migration of over 20 on-premise applications to AWS. Developed 12 different
+                analytics for the shutdown of a GE data center to identify trends in assets,
+                financials, and applications to make decisions about various migration strategies.
+              </li>
+              <li>
+                <strong>Software Engineer (2nd Rotation)</strong> - Developed reusable
+                micro-services using Java/Springboot. Apply principles of SDLC and methodologies
+                like Lean/Agile/XP, CI, software and product security, scalability, documentation
+                practices, refactoring and testing techniques.
+              </li>
+              <li>
+                <strong>Data Engineer (3rd Rotation)</strong> - Led back-end Python development to
+                build new features for Self- Service Data Platforms. Collaborated with Engineering
+                to create a curriculum for a week-long internal data science training that has been
+                taught to over 4,000 employees.
+              </li>
+              <li>
+                <strong>Product Owner (4th Rotation)</strong> - Defined the strategy, gathered
+                requirements, and built the backlog for network monitoring and data collection
+                architecture in GE's Core Technology organization. Built analytics using network
+                device performance metrics to capture trends and insights and monitor the health of
+                devices in GE's core data centers and hubs.
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   )

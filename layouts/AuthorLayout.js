@@ -1,6 +1,8 @@
+import Education from '@/components/Education'
 import Experience from '@/components/Experience'
-import SocialIcon from '@/components/social-icons'
 import Image from '@/components/Image'
+import SocialIcon from '@/components/social-icons'
+import Technologies from '@/components/Technologies'
 import { PageSEO } from '@/components/SEO'
 
 export default function AuthorLayout({ children, frontMatter }) {
@@ -32,15 +34,12 @@ export default function AuthorLayout({ children, frontMatter }) {
               {occupation} @ {company}
             </div>
             <div className="text-center text-gray-500 dark:text-gray-400">
-              I build things. On AWS. And without servers.
-              <br />I also play golf and drink bourbon.
+              I build things on AWS without thinking about servers.
             </div>
-            <div className="text-center text-gray-500 dark:text-gray-400">
-              <br />
-              Talk Serverless with me
-              <br />
-              {/* Replace with down arrow svg icon */}
-              ⬇️
+            <br />
+            <br />
+            <div className="text-center tracking-tighter text-gray-500 dark:text-gray-400">
+              ~ Let's talk serverless ~
             </div>
             <div className="flex space-x-3 pt-4">
               <SocialIcon kind="mail" href={`mailto:${email}`} />
@@ -53,6 +52,10 @@ export default function AuthorLayout({ children, frontMatter }) {
             {children}
           </div>
           <Experience />
+          <div>
+            <Education />
+            <Technologies />
+          </div>
         </div>
       </div>
     </>

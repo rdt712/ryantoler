@@ -33,13 +33,11 @@ export default function Home({ posts }) {
             </span>
           </h1>
           <p className="font-mono text-lg tracking-tighter text-gray-600 dark:text-gray-400">
-            I build things.
-            <br />
-            On AWS. And without servers.
-            <br />I also play golf and drink bourbon.
+            I build things on AWS without thinking about servers.
           </p>
           <p className="text-lg font-light tracking-tighter text-gray-600 dark:text-gray-400">
-            Welcome to <span className="font-bold">my corner</span> of the internet.
+            Let's talk <span className="font-bold">serverless</span>.
+            {/* Welcome to <span className="font-bold">my corner</span> of the internet. */}
           </p>
         </div>
         <div className="container mx-auto pt-4 pb-4">

@@ -47,7 +47,7 @@ export default function PostLayout({ frontMatter, authorDetails, toc, next, prev
                 {tags.map((tag) => (
                   <span
                     key={tag}
-                    className="mx-2 inline-block rounded border border-gray-700 py-1 px-2 text-xs font-medium hover:border-night-accent"
+                    className="mx-2 inline-block rounded border border-gray-700 py-1 px-2 text-xs font-medium hover:border-day-accent-hover dark:bg-night dark:hover:border-night-accent-hover"
                   >
                     <Link href={`/tags/${tag}`}>{tag}</Link>
                   </span>
