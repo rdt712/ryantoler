@@ -1,15 +1,16 @@
 const siteMetadata = {
-  title: 'Ryan Toler',
+  title: 'Ryan Toler - developer, writer, all things serverless.',
   author: 'Ryan Toler',
   headerTitle: 'ryantoler',
-  description: "Ryan Toler's personal website and blog.",
+  description:
+    'Serverless cloud architect with a passion for building scalable, performant, and secure applications.',
   language: 'en-us',
   theme: 'system', // system, dark or light
   siteUrl: 'https://www.ryantoler.dev',
   siteRepo: 'https://github.com/rdt712/ryantoler',
   siteLogo: '/static/images/logo.png',
   image: '/static/images/avatar.jpg',
-  socialBanner: '/static/images/twitter-card.png',
+  socialBanner: '/static/images/banner.png',
   email: 'rtoler@trek10.com',
   github: 'https://github.com/rdt712',
   twitter: 'https://twitter.com/ryantoler_',
@@ -58,7 +59,7 @@ const siteMetadata = {
       // Choose the language giscus will be displayed in. options: en, es, zh-CN, zh-TW, ko, ja etc
       lang: 'en',
       // theme when dark mode
-      darkTheme: 'transparent_dark',
+      darkTheme: 'dark',
       // If the theme option above is set to 'custom`
       // please provide a link below to your custom theme css file.
       // example: https://giscus.app/themes/custom_example.css

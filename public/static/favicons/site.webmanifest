@@ -1,6 +1,7 @@
 {
-    "name": "",
-    "short_name": "",
+    "name": "Ryan Toler",
+    "short_name": "ryantoler.dev",
+    "description": "Cloud Architect specializing in AWS and serverless technologies.",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
@@ -15,5 +16,7 @@
     ],
     "theme_color": "#333333",
     "background_color": "#333333",
-    "display": "standalone"
+    "display": "standalone",
+    "lang": "en-US",
+    "orientation": "portrait-primary"
 }
