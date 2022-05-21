@@ -3,6 +3,7 @@ import { PageSEO } from '@/components/SEO'
 import Post from '@/components/Post'
 import siteMetadata from '@/data/siteMetadata'
 import { getAllFilesFrontMatter } from '@/lib/mdx'
+import NowPlaying from '@/components/NowPlaying'
 
 import NewsletterForm from '@/components/NewsletterForm'
 
@@ -37,8 +38,8 @@ export default function Home({ posts }) {
           </p>
           <p className="text-lg font-light tracking-tighter text-gray-600 dark:text-gray-400">
             Let's talk <span className="font-bold">serverless</span>.
-            {/* Welcome to <span className="font-bold">my corner</span> of the internet. */}
           </p>
+          <NowPlaying />
         </div>
         <div className="container mx-auto pt-4 pb-4">
           <div className="my-4 flex flex-col">
