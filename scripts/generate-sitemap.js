@@ -33,15 +33,16 @@ const siteMetadata = require('../data/siteMetadata')
                     return
                   }
                 }
+
                 const path = page
                   .replace('pages/', '/')
                   .replace('data/blog', '/blog')
+                  .replace('data/snippets', '/snippets')
                   .replace('public/', '/')
-                  .replace('.js', '')
-                  .replace('.tsx', '')
-                  .replace('.mdx', '')
-                  .replace('.md', '')
                   .replace('/feed.xml', '')
+                  .replace(/\.(mdx|md|js|tsx)/, '')
+                  .replace(/(\d{4})-(\d{2})-(\d{2})-/g, '') // Remove date from path
+
                 const route = path === '/index' ? '' : path
 
                 if (page.search('pages/404.') > -1 || page.search(`pages/blog/[...slug].`) > -1) {
