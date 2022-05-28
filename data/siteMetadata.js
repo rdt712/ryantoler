@@ -5,7 +5,7 @@ const siteMetadata = {
   description:
     'Serverless cloud architect with a passion for building scalable, performant, and secure applications.',
   language: 'en-us',
-  theme: 'system', // system, dark or light
+  theme: 'dark', // system, dark or light
   siteUrl: 'https://www.ryantoler.dev',
   siteRepo: 'https://github.com/rdt712/ryantoler',
   siteLogo: '/static/images/logo.png',

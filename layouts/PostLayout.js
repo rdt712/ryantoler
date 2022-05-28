@@ -9,7 +9,6 @@ import Post from '@/components/Post'
 import TOCSticky from '@/components/TOCSticky'
 import siteMetadata from '@/data/siteMetadata'
 
-const editUrl = (fileName) => `${siteMetadata.siteRepo}/blob/master/data/blog/${fileName}`
 const discussUrl = (slug) =>
   `https://mobile.twitter.com/search?q=${encodeURIComponent(
     `${siteMetadata.siteUrl}/blog/${slug}`
@@ -24,7 +23,7 @@ const shareUrl = (slug, title) =>
 const postDateTemplate = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
 
 export default function PostLayout({ frontMatter, authorDetails, toc, next, prev, children }) {
-  const { slug, fileName, date, title, image, tags, readingTime } = frontMatter
+  const { slug, date, title, image, tags, readingTime } = frontMatter
 
   return (
     <SectionContainer>
