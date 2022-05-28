@@ -37,7 +37,15 @@ module.exports = {
         'day-accent-hover': '#0369a1', // 700
         'night-accent': '#0ea5e9', // 500
         'night-accent-hover': '#38bdf8', // 400
-        // accent: '#1e90ff',
+        warning: '#f3722c',
+        important: '#3498db',
+        caution: '#f94144',
+        tip: '#06d6a0',
+        note: '#62b6cb',
+        question: '#277da1',
+        quote: '#43aa8b',
+        comment: '#6184d8',
+        docs: '#7768ae',
       },
       typography: (theme) => ({
         DEFAULT: {
@@ -79,10 +87,12 @@ module.exports = {
               backgroundColor: theme('colors.gray.800'),
             },
             code: {
-              color: theme('colors.pink.500'),
-              backgroundColor: theme('colors.gray.100'),
-              padding: '0.5rem',
+              color: theme('colors.gray.800'),
+              backgroundColor: theme('colors.gray.200'),
+              borderColor: theme('colors.gray.300'),
+              padding: '0.125rem 0.25rem',
               borderRadius: '0.25rem',
+              borderWidth: '1px',
             },
             'code::before': {
               content: 'none',
@@ -207,7 +217,9 @@ module.exports = {
               color: theme('colors.gray.100'),
             },
             code: {
-              backgroundColor: theme('colors.gray.800'),
+              color: theme('colors.gray.200'),
+              backgroundColor: theme('colors.gray.700'),
+              borderColor: theme('colors.gray.600'),
             },
             details: {
               backgroundColor: theme('colors.gray.800'),
