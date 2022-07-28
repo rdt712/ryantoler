@@ -64,16 +64,16 @@ export default function PostLayout({ frontMatter, authorDetails, toc, next, prev
               </dl>
             </div>
           </header>
-          <div className="divide-y divide-gray-200 pb-8 dark:divide-gray-700 xl:divide-y-0">
-            <div className="relative my-4 mx-auto flex flex-col items-center overflow-hidden rounded-lg object-cover shadow-lg md:w-3/4">
-              <Image src={image} alt={title} width={800} height={600} priority={true} />
+          <div className="divide-y divide-gray-200 dark:divide-gray-700 md:pb-8 xl:divide-y-0">
+            <div className="relative my-4 mx-auto flex min-h-[200px] w-full items-center overflow-hidden rounded-lg shadow-lg md:h-[500px]">
+              <Image src={image} alt={title} layout="fill" objectFit="cover" />
             </div>
           </div>
           <div
             className="border-2 border-day bg-day bg-opacity-50 dark:border-night dark:bg-night dark:bg-opacity-75 xl:grid xl:grid-cols-4 xl:gap-x-6"
             style={{ gridTemplateRows: 'auto 1fr' }}
           >
-            <div className="prose max-w-none pt-10 pb-8 dark:prose-dark xl:col-span-3 xl:row-span-2">
+            <div className="prose max-w-none px-4 pb-8 dark:prose-dark xl:col-span-3 xl:row-span-2">
               {children}
             </div>
             <TOCSticky toc={toc} />
