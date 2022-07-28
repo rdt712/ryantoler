@@ -108,17 +108,25 @@ const Headings = ({ headings, activeId }) => (
         <a
           key={`a#${heading.id}`}
           href={heading.url}
-          className={heading.id === activeId ? 'current-active-section' : ''}
+          className={
+            heading.id === activeId
+              ? 'current-active-section font medium text-night dark:text-day'
+              : ''
+          }
         >
           <p className="relative pl-2">{heading.value}</p>
         </a>
         {heading.items.length > 0 && (
-          <div className="spacy-y-1 mt-1 ml-4">
+          <div className="spacy-y-10 mt-1 ml-4">
             {heading.items.map((child) => (
               <div key={child.id} className="transition-all duration-500 ease-in-out">
                 <a
                   href={child.url}
-                  className={child.id === activeId ? 'current-active-section' : ''}
+                  className={
+                    child.id === activeId
+                      ? 'current-active-section font-medium text-night dark:text-day'
+                      : ''
+                  }
                 >
                   <p className="relative pl-2">{child.value}</p>
                 </a>

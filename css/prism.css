@@ -31,6 +31,10 @@
   @apply bg-red-500 bg-opacity-20;
 }
 
+.comment {
+  @apply bg-transparent;
+}
+
 .highlight-line {
   @apply -mx-4 border-l-4 border-night-accent bg-gray-700 bg-opacity-50;
 }

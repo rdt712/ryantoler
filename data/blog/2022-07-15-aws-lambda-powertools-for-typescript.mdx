@@ -1,0 +1,435 @@
+---
+title: Power-up Lambda functions with AWS Lambda Powertools for TypeScript
+date: '2022-07-15 12:00:00'
+image: /static/images/lambda-powertools-typescript/featured.jpeg
+tags:
+  - aws
+  - lambda
+  - typescript
+draft: false
+summary: Discover how easy it is to quickly “power-up” your Node.js Lambda functions with utilities from AWS Lambda Powertools for TypeScript.
+---
+
+:::important
+I originally shared this post on Trek10's CloudProse blog. You can find it
+[here](https://www.trek10.com/blog/power-up-lambda-functions-with-aws-lambda-powertools-for-typescript).
+:::
+
+## Developer Experience
+
+:::note
+**Note:** The complete code for the examples referenced in this article can be found on [Github](https://github.com/trek10inc/lambda-powertools-typescript-examples).
+:::
+
+If you're like me, you are always trying to find ways to make life easier. I am constantly automating things around the house or trying new tips and tricks to
+improve my daily life. The same can be said about building software. AWS Lambda makes it incredibly easy to run code without thinking about servers,
+allowing developers to focus on what they do best - code. Developers love building serverless applications with AWS Lambda because it offers greater scalability,
+quicker time to release, and more flexibility, all at reduced costs.
+
+However, AWS Lambda and serverless applications are not without flaws and introduce new challenges and complexity. Challenges such as debugging, tracing, and
+[developing for retries and failures](https://docs.aws.amazon.com/lambda/latest/operatorguide/retries-failures.html) must be solved differently than traditional
+applications, often with custom code. These problems aren't always trivial to solve. Lambda functions can quickly become bloated with boilerplate code, muddying
+up core business logic. What if there was an easy way to overcome these challenges and improve the developer experience?
+
+## Enter AWS Lambda Powertools
+
+AWS Lambda Powertools is an open-source library providing a collection of utilities for AWS Lambda functions designed to make developers' lives easier. The
+collection of utilities focuses on implementing best practices such as structured logging, custom metrics, tracing, and more, as defined in the
+[AWS Well-Architected Serverless Lens](https://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/welcome.html). Think of each utility
+as a “power-up” for Lambda, adding a unique ability to help solve distinct challenges found in serverless applications. Developers can choose the utilities
+they need to follow serverless best practices while avoiding creating and maintaining custom code. AWS Lambda Powertools supports the three most popular Lambda
+runtimes - Python, Java, and now Node.js, with the official general availability release of
+[AWS Lambda Powertools for TypeScript](https://awslabs.github.io/aws-lambda-powertools-typescript/latest/).
+
+:::quote
+Think of each utility as a “power-up” for Lambda, adding a unique ability to help solve distinct challenges found in serverless applications.
+:::
+
+Don't let the name AWS Lambda Powertools for TypeScript mislead you. This library has been developed for the Lambda Node.js runtime. Therefore, it is
+compatible with Lambda functions developed with either TypeScript or JavaScript! Currently, AWS Lambda Powertools for TypeScript comes with the core
+Logger, Tracer, and Metrics utilities, focusing on implementing best practices outlined in the
+[Operational Excellence Pillar](https://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/operational-excellence-pillar.html). In addition,
+the TypeScript version will receive the same features as the Python and Java versions in subsequent releases, as seen in the
+[roadmap](https://github.com/awslabs/aws-lambda-powertools-typescript/projects/2).
+
+## Show Me the Power!
+
+Let's “power-up” a sample application using AWS Lambda Powertools for TypeScript by walking through how to use each utility. I modified the sample application
+used in the [AWS TypeScript CDK Workshop](https://cdkworkshop.com/20-typescript.html) to show how easy it is to incorporate AWS Lambda Powertools into an
+existing application. In addition, since the [official documentation](https://awslabs.github.io/aws-lambda-powertools-typescript/latest/) only has examples
+in TypeScript, I provided a JavaScript example for those unfamiliar with TypeScript. The complete code for these examples can be found on
+[Github](https://github.com/trek10inc/lambda-powertools-typescript-examples).
+
+### Middy
+
+Before focusing on each utility, I want to highlight [Middy](https://github.com/middyjs/middy), an open-source Node.js middleware library for AWS Lambda.
+AWS Lambda Powertools for TypeScript has built-in support for Middy to reduce the manual setup required for some features. Since Middy works with TypeScript
+and JavaScript, the utility instrumentation will be the same for both languages. Middy can also be used outside AWS Lambda Powertools for TypeScript to create
+custom middleware for other use cases. Each example below will use the Middy implementation to set up each utility.
+
+### Logger
+
+The [Logger utility](https://awslabs.github.io/aws-lambda-powertools-typescript/latest/core/logger/) provides an opinionated logger to standardize the output
+with operational information structured as JSON. It can also capture keys from the Lambda context and allows custom keys to be logged at any time to answer
+questions about the application's state. [Centralized and structured logging](https://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/opex-logging.html)
+is a crucial best practice in serverless applications. Centralized logging helps you search and analyze your serverless application logs.
+Structured logging makes it easier to build queries to help with debugging.
+
+**TypeScript**
+
+```typescript
+// import Logger and injectLambdaContext middleware to auto-capture and log the Lambda Context
+import { Logger, injectLambdaContext } from '@aws-lambda-powertools/logger';
+// import middy (required for injectLambdaContext to automatically inject the Lambda context into the logs)
+import middy from '@middy/core';
+// import Lambda Context Type
+import { Context } from 'aws-lambda';
+
+// create Powertools Logger instance with custom service name
+const logger = new Logger();
+
+const lambdaHandler = async (event: any, context: Context): Promise<unknown> => {
+  // Old way of logging
+  console.log('Incoming Request:', { event });
+  // New way of logging using Powertools Logger
+  logger.info('Incoming Request:', { event });
+
+  ...
+}
+
+// Use middy to add middleware to the Lambda handler.
+// It cleans up the handler and removes the need to add boilerplate code, while also allowing you to add custom middleware if needed.
+export const handler = middy(lambdaHandler).use(injectLambdaContext(logger));
+```
+
+**JavaScript**
+
+```javascript
+// import Logger and injectLambdaContext middleware to auto-capture and log the Lambda Context
+const { Logger, injectLambdaContext } = require('@aws-lambda-powertools/logger');
+// import middy (required for injectLambdaContext to automatically inject the Lambda context into the logs)
+const middy = require('@middy/core');
+
+// create Powertools Logger instance with custom service name
+const logger = new Logger();
+
+const lambdaHandler = async function (event, context) {
+  // Old way of logging
+  console.log('Incoming Request:', { event });
+  // New way of logging using Powertools Logger
+  logger.info('Incoming Request:', { event });
+
+  ...
+}
+
+// Use middy to add middleware to the Lambda handle
+// It cleans up the handler and removes the need to add boilerplate code, while also allowing you to add custom middleware if needed.
+const handler = middy(lambdaHandler).use(injectLambdaContext(logger));
+
+module.exports = { handler };
+```
+
+Let's compare the outputs of `console.log()` and `logger.info()`.
+
+<a
+  href="/static/images/lambda-powertools-typescript/logger-1.jpeg"
+  alt="console.log()"
+  target="_blank"
+>
+  <div className="align-center block justify-center">
+    <Image
+      alt="console.log()"
+      src="/static/images/lambda-powertools-typescript/logger-1.jpeg"
+      layout="responsive"
+      width={688}
+      height={220}
+    />
+  </div>
+</a>
+
+<div className="align-center flex justify-center text-sm text-gray-600 dark:text-gray-400">
+  `console.log()` produces a string output in CloudWatch.
+</div>
+
+<a
+  href="/static/images/lambda-powertools-typescript/logger-2.jpeg"
+  alt="logger.info()"
+  target="_blank"
+>
+  <div className="align-center block justify-center">
+    <Image
+      alt="logger.info()"
+      src="/static/images/lambda-powertools-typescript/logger-2.jpeg"
+      layout="responsive"
+      width={688}
+      height={220}
+    />
+  </div>
+</a>
+
+<div className="align-center flex justify-center text-sm text-gray-600 dark:text-gray-400">
+  `logger.info()` produces structured JSON output in CloudWatch.
+</div>
+
+Using [CloudWatch Logs Insights](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AnalyzingLogData.html),
+the structured logs can be easily searched and analyzed to help debug serverless applications.
+
+<a
+  href="/static/images/lambda-powertools-typescript/log-insights.jpeg"
+  alt="CloudWatch Log Insights"
+  target="_blank"
+>
+  <div className="align-center block justify-center">
+    <Image
+      alt="CloudWatch Log Insights"
+      src="/static/images/lambda-powertools-typescript/log-insights.jpeg"
+      layout="responsive"
+      width={688}
+      height={260}
+    />
+  </div>
+</a>
+
+<div className="align-center flex justify-center text-sm text-gray-600 dark:text-gray-400">
+  Query structured logs in CloudWatch Logs Insights.
+</div>
+
+The Logger utility is a simple “power-up” that overhauls logging in Lambda functions. Debugging Lambda functions can be a challenge
+due to their serverless nature. The Logger utility makes it extremely easy with little to no overhead.
+
+### Tracer
+
+The [Tracer utility](https://awslabs.github.io/aws-lambda-powertools-typescript/latest/core/tracer/) is an opinionated wrapper around
+the AWS X-Ray SDK for Node.js, making it easy to adopt
+[distributed tracing](https://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/opex-distributed-tracing.html).
+If you want a quick explanation of AWS X-Ray, check out [AWS Xray Xplained](https://www.trek10.com/blog/aws-xray-xplained)
+on Trek10's CloudProse Blog. The Tracer utility automatically captures cold starts and service names as annotations, providing
+filtering and searching by a specific service. In addition, it automatically traces HTTP(S) clients and generates subsegments for
+each request. My favorite benefit of using the Tracer utility is reducing boilerplate code to create subsegments, which cleans up the
+Lambda handler. I also appreciate having a Service Map of the entire application. This helps visualize the different parts of the
+application and provides performance insights for faster troubleshooting. Check out the code snippets below to see how to use the Tracer utility.
+
+:::note
+**Note:** Ensure “Active Tracing” is turned on for your Lambda function when setting up the Tracer.
+:::
+
+**TypeScript**
+
+```typescript
+// import Tracer utility and middleware
+import { Tracer, captureLambdaHandler } from '@aws-lambda-powertools/tracer';
+// import AWS clients
+import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
+import { DynamoDBDocumentClient } from '@aws-sdk/lib-dynamodb';
+import { LambdaClient } from '@aws-sdk/client-lambda';
+// import Lambda Context Type
+import { Context } from 'aws-lambda';
+// import middy (required for captureLambdaHandler to automatically create/close subsegments)
+import middy from '@middy/core';
+
+// create Powertools Tracer instance
+const tracer = new Tracer();
+
+// patch AWS v3 clients to automatically capture AWS service calls
+const dynamoDBClient = tracer.captureAWSv3Client(new DynamoDBClient({}));
+const dynamoDBDocumentClient = DynamoDBDocumentClient.from(dynamoDBClient);
+const lambdaClient = tracer.captureAWSv3Client(new LambdaClient({}));
+
+const lambdaHandler = async (event: any, context: Context): Promise<unknown> => {
+  // Optionally add custom annotation for filtering traces
+  tracer.putAnnotation('awsRequestId', context.awsRequestId);
+  // Optionally add custom metadata for traces
+  tracer.putMetadata('eventPayload', event);
+
+  ...
+}
+
+// Use middy to add middleware to the Lambda handler.
+// It cleans up the handler and removes the need to add boilerplate code, while also allowing you to add custom middleware if needed.
+export const handler = middy(lambdaHandler).use(captureLambdaHandler(tracer));
+```
+
+**JavaScript**
+
+```javascript
+// import Tracer utility and middleware
+const { Tracer, captureLambdaHandler } = require('@aws-lambda-powertools/tracer');
+// import AWS clients
+const { DynamoDB, Lambda } = require('aws-sdk');
+// import middy (required for captureLambdaHandler to automatically create/close subsegments)
+const middy = require('@middy/core');
+
+// create Powertools Logger instance
+const logger = new Logger();
+// create Powertools Tracer instance
+const tracer = new Tracer();
+
+// patch AWS v3 clients to automatically capture AWS service calls
+const dynamo = tracer.captureAWSClient(new DynamoDB());
+const lambda = tracer.captureAWSClient(new Lambda());
+
+const lambdaHandler = async function (event, context) {
+  // Optionally add custom annotation for filtering traces
+  tracer.putAnnotation('awsRequestId', context.awsRequestId);
+  // Optionally add custom metadata for traces
+  tracer.putMetadata('eventPayload', event);
+
+  ...
+}
+
+// Use middy to add middleware to the Lambda handler.
+// It cleans up the handler and removes the need to add boilerplate code, while also allowing you to add custom middleware if needed.
+const handler = middy(lambdaHandler).use(captureLambdaHandler(tracer));
+
+module.exports = { handler };
+```
+
+<a
+  href="/static/images/lambda-powertools-typescript/tracer-1.jpeg"
+  alt="X-Ray Service Map"
+  target="_blank"
+>
+  <div className="align-center block justify-center">
+    <Image
+      alt="X-Ray Service Map"
+      src="/static/images/lambda-powertools-typescript/tracer-1.jpeg"
+      layout="responsive"
+      width={688}
+      height={260}
+    />
+  </div>
+</a>
+
+<div className="align-center flex justify-center text-sm text-gray-600 dark:text-gray-400">
+  AWS X-Ray Service Map of the entire application when implemented with Tracer.
+</div>
+
+<a
+  href="/static/images/lambda-powertools-typescript/tracer-2.jpeg"
+  alt="X-Ray Subsegments"
+  target="_blank"
+>
+  <div className="align-center block justify-center">
+    <Image
+      alt="X-Ray Subsegments"
+      src="/static/images/lambda-powertools-typescript/tracer-2.jpeg"
+      layout="responsive"
+      width={688}
+      height={410}
+    />
+  </div>
+</a>
+
+<div className="align-center flex justify-center text-sm text-gray-600 dark:text-gray-400">
+  Automatically generated subsegments under the function invocation traces.
+</div>
+
+The Tracer utility is a great “power-up” to add distributed tracing to your Lambda functions to gain insights
+into performance degradation or network anomalies. It becomes even more powerful when coupled with structured logs
+from the Logger utility to improve the troubleshooting experience.
+
+### Metrics
+
+The [Metrics utility](https://awslabs.github.io/aws-lambda-powertools-typescript/latest/core/metrics/)
+creates custom CloudWatch metrics by logging metrics to standard output following
+[Amazon CloudWatch Embedded Metric Format (EMF)](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Embedded_Metric_Format.html).
+The metrics are then asynchronously uploaded to CloudWatch without affecting the performance of the serverless application.
+Potential use cases for gathering metrics are tracking the number of orders placed or the average time it takes to check out in an online store.
+The metrics can then be visualized in a dashboard in CloudWatch around these specific business goals.
+
+**TypeScript**
+
+```typescript
+// import Metrics utility and logMetrics middleware to capture cold start metrics
+import { Metrics, MetricUnits, logMetrics } from '@aws-lambda-powertools/metrics';
+// import middy (required for captureColdStartMetric to automatically capture cold start metrics)
+import middy from '@middy/core';
+// import Lambda Context Type
+import { Context } from 'aws-lambda';
+
+// create Powertools Metrics instance
+const metrics = new Metrics();
+
+const lambdaHandler = async (event: any, context: Context): Promise<unknown> => {
+  // Optionally create a custom metric
+  metrics.addMetric('hit', MetricUnits.Count, 1);
+  metrics.publishStoredMetrics();
+
+  ...
+}
+
+// Use middy to add middleware to the Lambda handler
+// It cleans up the handler and removes the need to add boilerplate code, while also allowing you to add custom middleware if needed.
+export const handler = middy(lambdaHandler)
+  .use(
+    logMetrics(metrics, {
+      captureColdStartMetric: true
+    })
+  );
+
+```
+
+**JavaScript**
+
+```javascript
+// import Metrics utility and middleware
+const { Metrics, MetricUnits, logMetrics } = require('@aws-lambda-powertools/metrics');
+// import middy (required for captureColdStartMetric to automatically capture cold start metrics)
+const middy = require('@middy/core');
+
+// create Powertools Metrics instance
+const metrics = new Metrics();
+
+const lambdaHandler = async function (event, context) {
+  // Optionally create a custom metric
+  metrics.addMetric('hit', MetricUnits.Count, 1);
+  metrics.publishStoredMetrics();
+
+  ...
+}
+
+// Use middy to add middleware to the Lambda handler.
+// It cleans up the handler and removes the need to add boilerplate code, while also allowing you to add custom middleware if needed.
+const handler = middy(lambdaHandler)
+  .use(
+    logMetrics(metrics, {
+      captureColdStartMetric: true
+    })
+  );
+
+module.exports = { handler }
+```
+
+<a
+  href="/static/images/lambda-powertools-typescript/metrics.jpeg"
+  alt="X-Ray Subsegments"
+  target="_blank"
+>
+  <div className="align-center block justify-center">
+    <Image
+      alt="CloudWatch Metrics"
+      src="/static/images/lambda-powertools-typescript/metrics.jpeg"
+      layout="responsive"
+      width={688}
+      height={260}
+    />
+  </div>
+</a>
+
+<div className="align-center flex justify-center text-sm">
+  Create dashboards in the console using custom metrics from your application.
+</div>
+
+The Metrics utility is the perfect “power-up” to make it easy to adopt
+[metrics best practices](https://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/opex-metrics-and-alerts.html)
+by simplifying the creation and collection of custom metrics without developing and maintaining custom logic.
+
+## Final Thoughts
+
+AWS fully maintains this project and has a large active community for developers to get support or request additional features.
+For example, there is a [feature request](https://github.com/awslabs/aws-lambda-powertools-typescript/issues/646) for adding support
+for other observability providers like New Relic and Datadog. Lambda Powertools for TypeScript currently focuses on improving
+observability in serverless applications using Amazon CloudWatch and AWS X-Ray. At Trek10, we heavily use Datadog, so I'm hoping
+this feature will eventually make its way into a subsequent release! I've already added the Logger and Tracer utilities to my
+existing Node.js Lambda functions, significantly improving observability and making debugging easier. I love how simple
+AWS Lambda Powertools makes it to adopt best practices and follow the AWS Well-Architected Framework when building serverless applications.
