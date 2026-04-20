@@ -6,7 +6,7 @@ import SocialIcon from '@/components/social-icons'
 export default function Footer() {
   return (
     <footer className="border-t border-gray-500 dark:border-gray-500">
-      <div className="mt-4 mb-4 flex flex-col items-center justify-between sm:flex-row">
+      <div className="mb-4 mt-4 flex flex-col items-center justify-between sm:flex-row">
         <div className="mb-2 flex space-x-2 text-sm text-gray-500 dark:text-gray-400">
           <div>{`© ${new Date().getFullYear()}`}</div>
           <Link className="hover:text-day-accent-hover dark:hover:text-night-accent-hover" href="/">

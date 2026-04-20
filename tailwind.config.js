@@ -4,9 +4,6 @@ const colors = require('tailwindcss/colors')
 const symbol = '❯'
 
 module.exports = {
-  experimental: {
-    optimizeUniversalDefaults: true,
-  },
   content: [
     './pages/**/*.js',
     './components/**/*.js',
