@@ -1,6 +1,7 @@
 import Link from './Link'
 import siteMetadata from '@/data/siteMetadata'
 import HeaderIcon from '@/components/header-icons'
+import NowPlaying from '@/components/NowPlaying'
 import SocialIcon from '@/components/social-icons'
 
 export default function Footer() {
@@ -28,6 +29,9 @@ export default function Footer() {
           <SocialIcon kind="twitter" href={siteMetadata.twitter} size="5" />
           <SocialIcon kind="rss" href="/feed.xml" size="5" />
         </div>
+      </div>
+      <div className="mb-2 flex flex-col items-center space-x-2 sm:flex-row">
+        <NowPlaying />
       </div>
     </footer>
   )

@@ -37,7 +37,6 @@ export default function Home({ posts }) {
           </p>
           <p className="text-lg font-light tracking-tighter text-gray-600 dark:text-gray-400">
             Let's talk <span className="font-bold">serverless</span>.
-            {/* Welcome to <span className="font-bold">my corner</span> of the internet. */}
           </p>
         </div>
         <div className="container mx-auto pt-4 pb-4">

@@ -24,7 +24,7 @@
     "isomorphic-fetch": "^3.0.0",
     "kbar": "^0.1.0-beta.30",
     "mdx-bundler": "^8.0.0",
-    "next": "12.0.9",
+    "next": "^12.1.6",
     "next-themes": "^0.0.14",
     "postcss": "^8.4.5",
     "preact": "^10.6.2",
