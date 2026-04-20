@@ -117,7 +117,7 @@ const Headings = ({ headings, activeId }) => (
           <p className="relative pl-2">{heading.value}</p>
         </a>
         {heading.items.length > 0 && (
-          <div className="spacy-y-10 mt-1 ml-4">
+          <div className="spacy-y-10 ml-4 mt-1">
             {heading.items.map((child) => (
               <div key={child.id} className="transition-all duration-500 ease-in-out">
                 <a

@@ -40,7 +40,7 @@ export default function Technologies() {
   ]
 
   return (
-    <div className="max-w-none pt-8 pb-8 xl:col-span-1">
+    <div className="max-w-none pb-8 pt-8 xl:col-span-1">
       <div className="my-4 flex flex-col">
         <span className="text-4xl font-bold">Technologies</span>
         <span className="mb-4 inline-block h-0.5 w-20 rounded bg-day-accent dark:bg-night-accent"></span>
@@ -49,7 +49,7 @@ export default function Technologies() {
         {techList.map((tech) => (
           <span
             key={tech}
-            className="m-1 inline-block rounded border border-gray-700 py-1 px-2 text-xs font-medium hover:border-day-accent-hover dark:bg-night dark:hover:border-night-accent-hover"
+            className="m-1 inline-block rounded border border-gray-700 px-2 py-1 text-xs font-medium hover:border-day-accent-hover dark:bg-night dark:hover:border-night-accent-hover"
           >
             {tech}
           </span>

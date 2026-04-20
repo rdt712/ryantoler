@@ -11,12 +11,12 @@ export default function Snippet({ frontMatter }) {
       >
         <div className="absolute bottom-0 left-0 h-1 w-full origin-left scale-x-0 transform bg-day-accent duration-300 group-hover:scale-x-100 dark:bg-night-accent"></div>
         <div className="absolute bottom-0 left-0 h-full w-1 origin-bottom scale-y-0 transform bg-day-accent duration-300 group-hover:scale-y-100 dark:bg-night-accent"></div>
-        <div className="absolute top-0 left-0 h-1 w-full origin-right scale-x-0 transform bg-day-accent duration-300 group-hover:scale-x-100 dark:bg-night-accent"></div>
+        <div className="absolute left-0 top-0 h-1 w-full origin-right scale-x-0 transform bg-day-accent duration-300 group-hover:scale-x-100 dark:bg-night-accent"></div>
         <div className="absolute bottom-0 right-0 h-full w-1 origin-top scale-y-0 transform bg-day-accent duration-300 group-hover:scale-y-100 dark:bg-night-accent"></div>
         <div className="relative space-y-2 p-4 dark:bg-gray-900">
-          <h2 className="mt-2 mb-2 font-bold md:text-xl">{title}</h2>
+          <h2 className="mb-2 mt-2 font-bold md:text-xl">{title}</h2>
           <span className="inline-flex w-full items-center justify-between">
-            <span className="inline-block rounded border border-gray-700 py-1 px-2 text-xs font-medium">
+            <span className="inline-block rounded border border-gray-700 px-2 py-1 text-xs font-medium">
               {tags[0]}
             </span>
             <time dateTime={date} className="text-sm font-semibold text-gray-500">

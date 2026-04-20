@@ -6,6 +6,7 @@ import ScrollTopAndComment from '@/components/ScrollTopAndComment'
 import SectionContainer from '@/components/SectionContainer'
 import { BlogSEO } from '@/components/SEO'
 import Post from '@/components/Post'
+import TOCInline from '@/components/TOCInline'
 import TOCSticky from '@/components/TOCSticky'
 import siteMetadata from '@/data/siteMetadata'
 
@@ -44,7 +45,7 @@ export default function PostLayout({ frontMatter, authorDetails, toc, next, prev
                 {tags.map((tag) => (
                   <span
                     key={tag}
-                    className="mx-2 inline-block rounded border border-gray-700 py-1 px-2 text-xs font-medium hover:border-day-accent-hover dark:bg-night dark:hover:border-night-accent-hover"
+                    className="mx-2 inline-block rounded border border-gray-700 px-2 py-1 text-xs font-medium hover:border-day-accent-hover dark:bg-night dark:hover:border-night-accent-hover"
                   >
                     <Link href={`/tags/${tag}`}>{tag}</Link>
                   </span>
@@ -65,7 +66,7 @@ export default function PostLayout({ frontMatter, authorDetails, toc, next, prev
             </div>
           </header>
           <div className="divide-y divide-gray-200 dark:divide-gray-700 md:pb-8 xl:divide-y-0">
-            <div className="relative my-4 mx-auto flex min-h-[200px] w-full items-center overflow-hidden rounded-lg shadow-lg md:h-[500px]">
+            <div className="relative mx-auto my-4 flex min-h-[200px] w-full items-center overflow-hidden rounded-lg shadow-lg md:h-[500px]">
               <Image src={image} alt={title} layout="fill" objectFit="cover" />
             </div>
           </div>
@@ -74,6 +75,9 @@ export default function PostLayout({ frontMatter, authorDetails, toc, next, prev
             style={{ gridTemplateRows: 'auto 1fr' }}
           >
             <div className="prose max-w-none px-4 pb-8 dark:prose-dark xl:col-span-3 xl:row-span-2">
+              <div className="xl:hidden">
+                <TOCInline toc={toc} asDisclosure toHeading={3} />
+              </div>
               {children}
             </div>
             <TOCSticky toc={toc} />

@@ -13,28 +13,18 @@ summary: Analysis of Game of Thrones characters using the Networkx library in Py
 
 ## Winter is Coming. Let's load the dataset ASAP
 
-If you haven't heard of <em>Game of Thrones</em>, then you must be really good at hiding. Game of
+If you haven't heard of _Game of Thrones_, then you must be really good at hiding. Game of
 Thrones is the hugely popular television series by HBO based on the (also) hugely popular book
-series <em>A Song of Ice and Fire</em> by George R.R. Martin. In this notebook, we will analyze
+series _A Song of Ice and Fire_ by George R.R. Martin. In this notebook, we will analyze
 the co-occurrence network of the characters in the Game of Thrones books. Here, two characters are
 considered to co-occur if their names appear in the vicinity of 15 words from one another in the
 books.
 
-<div style={{ backgroundColor: 'white' }}>
-  >
-  <Image
-    alt="got_network"
-    src="/static/images/got-analysis/got_network.png"
-    width={640}
-    height={427}
-  />
-</div>
+![got_network](/static/images/got-analysis/got_network.png)
 
-This dataset constitutes a network and is given as a text file describing the <em>edges</em>{' '}
+This dataset constitutes a network and is given as a text file describing the _edges_
 between characters, with some attributes attached to each edge. Let's start by loading in the data
-for the first book <em>A Game of Thrones</em> and inspect it.
-
-<TOCInline toc={props.toc} asDisclosure toHeading={3} />
+for the first book _A Game of Thrones_ and inspect it.
 
 ```python
 # Importing modules
@@ -47,75 +37,26 @@ book1 = pd.read_csv('datasets/book1.csv')
 book1.head()
 ```
 
-<div>
-  <table>
-    <thead>
-      <tr>
-        <th></th>
-        <th>Source</th>
-        <th>Target</th>
-        <th>Type</th>
-        <th>weight</th>
-        <th>book</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th>0</th>
-        <td>Addam-Marbrand</td>
-        <td>Jaime-Lannister</td>
-        <td>Undirected</td>
-        <td>3</td>
-        <td>1</td>
-      </tr>
-      <tr>
-        <th>1</th>
-        <td>Addam-Marbrand</td>
-        <td>Tywin-Lannister</td>
-        <td>Undirected</td>
-        <td>6</td>
-        <td>1</td>
-      </tr>
-      <tr>
-        <th>2</th>
-        <td>Aegon-I-Targaryen</td>
-        <td>Daenerys-Targaryen</td>
-        <td>Undirected</td>
-        <td>5</td>
-        <td>1</td>
-      </tr>
-      <tr>
-        <th>3</th>
-        <td>Aegon-I-Targaryen</td>
-        <td>Eddard-Stark</td>
-        <td>Undirected</td>
-        <td>4</td>
-        <td>1</td>
-      </tr>
-      <tr>
-        <th>4</th>
-        <td>Aemon-Targaryen-(Maester-Aemon)</td>
-        <td>Alliser-Thorne</td>
-        <td>Undirected</td>
-        <td>4</td>
-        <td>1</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+|     | Source                          | Target             | Type       | weight | book |
+| --- | ------------------------------- | ------------------ | ---------- | ------ | ---- |
+| 0   | Addam-Marbrand                  | Jaime-Lannister    | Undirected | 3      | 1    |
+| 1   | Addam-Marbrand                  | Tywin-Lannister    | Undirected | 6      | 1    |
+| 2   | Aegon-I-Targaryen               | Daenerys-Targaryen | Undirected | 5      | 1    |
+| 3   | Aegon-I-Targaryen               | Eddard-Stark       | Undirected | 4      | 1    |
+| 4   | Aemon-Targaryen-(Maester-Aemon) | Alliser-Thorne     | Undirected | 4      | 1    |
 
 ## Time for some Network of Thrones
 
-The resulting DataFrame <code>book1</code> has 5 columns: <code>Source</code>, <code>Target</code>
-, <code>Type</code>, <code>weight</code>, and <code>book</code>. Source and target are the two
+The resulting DataFrame `book1` has 5 columns: `Source`, `Target`
+, `Type`, `weight`, and `book`. Source and target are the two
 nodes that are linked by an edge. A network can have directed or undirected edges and in this
 network all the edges are undirected. The weight attribute of every edge tells us the number of
 interactions that the characters have had over the book, and the book column tells us the book
 number.
 
-Once we have the data loaded as a pandas DataFrame, it's time to create a network. We will use{' '}
+Once we have the data loaded as a pandas DataFrame, it's time to create a network. We will use
 
-<code>networkx</code>, a network analysis library, and create a graph object for the first book.
+`networkx`, a network analysis library, and create a graph object for the first book.
 
 ```python
 # Importing modules
@@ -127,8 +68,8 @@ G_book1 = nx.Graph()
 
 ## Populate the network with the DataFrame
 
-Currently, the graph object <code>G_book1</code> is empty. Let's now populate it with the edges
-from <code>book1</code>. And while we're at it, let's load in the rest of the books too!
+Currently, the graph object `G_book1` is empty. Let's now populate it with the edges
+from `book1`. And while we're at it, let's load in the rest of the books too!
 
 ```python
 # Iterating through the DataFrame to add edges
@@ -156,11 +97,11 @@ meaning.
 First, let's measure the importance of a node in a network by looking at the number of neighbors
 it has, that is, the number of nodes it is connected to. For example, an influential account on
 Twitter, where the follower-followee relationship forms the network, is an account which has a
-high number of followers. This measure of importance is called <em>degree centrality</em>.
+high number of followers. This measure of importance is called _degree centrality_.
 
 Using this measure, let's extract the top ten important characters from the first book (
 
-<code>book[0]</code>) and the fifth book (<code>book[4]</code>).
+`book[0]`) and the fifth book (`book[4]`).
 
 ```python
 # Calculating the degree centrality of book 1
@@ -232,23 +173,16 @@ degree_evol_df = pd.DataFrame.from_records(evol)
 degree_evol_df.plot(y=["Eddard-Stark", "Tyrion-Lannister", "Jon-Snow"])
 ```
 
-<div style={{ backgroundColor: 'white' }}>
-  <Image
-    alt="output_9_2"
-    src="/static/images/got-analysis/output_9_2.png"
-    width={640}
-    height={427}
-  />
-</div>
+![output_9_2](/static/images/got-analysis/output_9_2.png)
 
 ## What's up with Stannis Baratheon?
 
 We can see that the importance of Eddard Stark dies off as the book series progresses. With Jon
 Snow, there is a drop in the fourth book but a sudden rise in the fifth book.
 
-Now let's look at various other measures like <em>betweenness centrality</em> and{' '}
+Now let's look at various other measures like _betweenness centrality_ and
 
-<em>PageRank</em> to find important characters in our Game of Thrones character co-occurrence network
+_PageRank_ to find important characters in our Game of Thrones character co-occurrence network
 and see if we can uncover some more interesting facts about this network. Let's plot the evolution of
 betweenness centrality of this network over the five books. We will take the evolution of the top four
 characters of every book and plot it.
@@ -270,14 +204,7 @@ list_of_char = list(set_of_char)
 betweenness_evol_df.plot(y=list_of_char, figsize=(13, 7))
 ```
 
-<div style={{ backgroundColor: 'white' }}>
-  <Image
-    alt="output_11_2"
-    src="/static/images/got-analysis/output_11_2.png"
-    width={640}
-    height={427}
-  />
-</div>
+![output_11_2](/static/images/got-analysis/output_11_2.png)
 
 ## What does the Google PageRank algorithm tell us about Game of Thrones?
 
@@ -287,7 +214,7 @@ third most important character according to degree centrality.
 
 PageRank was the initial way Google ranked web pages. It evaluates the inlinks and outlinks of
 webpages in the world wide web, which is, essentially, a directed network. Let's look at the
-importance of characters in the Game of Thrones network according to PageRank.{' '}
+importance of characters in the Game of Thrones network according to PageRank.
 
 ```python
 # Creating a list of pagerank of all the characters in all the books
@@ -306,14 +233,7 @@ list_of_char = list(set_of_char)
 pagerank_evol_df.plot(y=list_of_char, figsize=(13, 7))
 ```
 
-<div style={{ backgroundColor: 'white' }}>
-  <Image
-    alt="output_13_2"
-    src="/static/images/got-analysis/output_13_2.png"
-    width={640}
-    height={427}
-  />
-</div>
+![output_13_2](/static/images/got-analysis/output_13_2.png)
 
 ## Correlation between different measures
 
@@ -343,38 +263,11 @@ cor = pd.DataFrame.from_records(measures)
 cor.T.corr()
 ```
 
-<div>
-  <table>
-    <thead>
-      <tr>
-        <th></th>
-        <th>0</th>
-        <th>1</th>
-        <th>2</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th>0</th>
-        <td>1.000000</td>
-        <td>0.793372</td>
-        <td>0.971493</td>
-      </tr>
-      <tr>
-        <th>1</th>
-        <td>0.793372</td>
-        <td>1.000000</td>
-        <td>0.833816</td>
-      </tr>
-      <tr>
-        <th>2</th>
-        <td>0.971493</td>
-        <td>0.833816</td>
-        <td>1.000000</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+|     | 0        | 1        | 2        |
+| --- | -------- | -------- | -------- |
+| 0   | 1.000000 | 0.793372 | 0.971493 |
+| 1   | 0.793372 | 1.000000 | 0.833816 |
+| 2   | 0.971493 | 0.833816 | 1.000000 |
 
 ## Conclusion
 
@@ -383,7 +276,7 @@ We see a high correlation between these three measures for our character co-occu
 So we've been looking at different ways to find the important characters in the Game of Thrones
 co-occurrence network. According to degree centrality, Eddard Stark is the most important
 character initially in the books. But who is/are the most important character(s) in the fifth book
-according to these three measures?{' '}
+according to these three measures?
 
 ```python
 # Finding the most important character in the fifth book,

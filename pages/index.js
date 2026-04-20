@@ -19,7 +19,7 @@ export default function Home({ posts }) {
     <>
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
       <div className="divide-y divide-gray-500 dark:divide-gray-500">
-        <div className="space-y-2 pt-6 pb-8 md:space-y-5">
+        <div className="space-y-2 pb-8 pt-6 md:space-y-5">
           <h1 className="text-4xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:leading-10 md:leading-14">
             Hey, I'm{' '}
             <Link
@@ -40,7 +40,7 @@ export default function Home({ posts }) {
             {/* Welcome to <span className="font-bold">my corner</span> of the internet. */}
           </p>
         </div>
-        <div className="container mx-auto pt-4 pb-4">
+        <div className="container mx-auto pb-4 pt-4">
           <div className="my-4 flex flex-col">
             <span className="font-poppins title-font text-3xl font-bold">Recent Posts</span>
             <span className="mb-4 inline-block h-0.5 w-20 rounded bg-day-accent dark:bg-night-accent"></span>

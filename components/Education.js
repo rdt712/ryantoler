@@ -3,14 +3,14 @@ import HeaderIcon from './header-icons'
 
 export default function Education() {
   return (
-    <div className="max-w-none pt-8 pb-8 xl:col-span-2">
+    <div className="max-w-none pb-8 pt-8 xl:col-span-2">
       <div className="my-4 flex flex-col">
         <span className="text-4xl font-bold">Education</span>
         <span className="mb-4 inline-block h-0.5 w-20 rounded bg-day-accent dark:bg-night-accent"></span>
       </div>
       <div className="ml-[22px]">
-        <div className="flex flex-col place-items-start border-l border-b border-gray-300 pl-4 dark:border-gray-700">
-          <span className="relative mt-4 ml-[-40px] inline-block rounded border border-gray-700 bg-day py-1 px-2 text-xs font-medium hover:border-day-accent-hover dark:bg-night dark:hover:border-night-accent-hover">
+        <div className="flex flex-col place-items-start border-b border-l border-gray-300 pl-4 dark:border-gray-700">
+          <span className="relative ml-[-40px] mt-4 inline-block rounded border border-gray-700 bg-day px-2 py-1 text-xs font-medium hover:border-day-accent-hover dark:bg-night dark:hover:border-night-accent-hover">
             Aug 2017 - Dec 2019
           </span>
           <div className="w-full py-4">
@@ -30,14 +30,14 @@ export default function Education() {
             </div>
           </div>
           <span className="text-sm font-bold text-gray-700 dark:text-gray-300">Atlanta, GA</span>
-          <div className="prose mt-4 mb-4 dark:prose-dark">
+          <div className="prose mb-4 mt-4 dark:prose-dark">
             <ul className="block space-y-2 text-base">
               <li>M.S. Computer Science</li>
             </ul>
           </div>
         </div>
-        <div className="flex flex-col place-items-start border-l border-b border-gray-300 pl-4 dark:border-gray-700">
-          <span className="relative mt-4 ml-[-40px] inline-block rounded border border-gray-700 bg-day py-1 px-2 text-xs font-medium hover:border-day-accent-hover dark:bg-night dark:hover:border-night-accent-hover">
+        <div className="flex flex-col place-items-start border-b border-l border-gray-300 pl-4 dark:border-gray-700">
+          <span className="relative ml-[-40px] mt-4 inline-block rounded border border-gray-700 bg-day px-2 py-1 text-xs font-medium hover:border-day-accent-hover dark:bg-night dark:hover:border-night-accent-hover">
             Aug 2012 - May 2016
           </span>
           <div className="w-full py-4">
@@ -59,7 +59,7 @@ export default function Education() {
           <span className="text-sm font-bold text-gray-700 dark:text-gray-300">
             Highland Heights, KY
           </span>
-          <div className="prose mt-4 mb-4 dark:prose-dark">
+          <div className="prose mb-4 mt-4 dark:prose-dark">
             <ul className="block space-y-2 text-base">
               <li>B.S. Computer Science</li>
             </ul>

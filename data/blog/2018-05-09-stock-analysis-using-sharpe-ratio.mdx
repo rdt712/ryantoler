@@ -20,12 +20,11 @@ different levels of risks?
 
 Enter William Sharpe.
 
-<div className="align-center flex justify-center">
-  <Image alt="sharpe" src="/static/images/sharpe-ratio/sharpe.jpeg" width={200} height={250} />
-</div>
+![sharpe](/static/images/sharpe-ratio/sharpe.jpeg)
 
-He introduced the [reward-to-variability
-ratio]("https://web.stanford.edu/~wfsharpe/art/sr/sr.htm") in 1966 that soon came to be called the
+He introduced the
+[reward-to-variability ratio](https://web.stanford.edu/~wfsharpe/art/sr/sr.htm) in 1966 that soon
+came to be called the
 Sharpe Ratio. It compares the expected returns for two investment opportunities and calculates the
 additional return per unit of risk an investor could obtain by choosing one over the other. In
 particular, it looks at the difference in returns for two investments and compares the average
@@ -40,8 +39,6 @@ Economics in 1990 for his work on the capital asset pricing model (CAPM).
 Let's learn about the Sharpe ratio by calculating it for the stocks of the two tech giants
 Facebook and Amazon. As a benchmark, we'll use the S&amp;P 500 that measures the performance of
 the 500 largest stocks in the US.
-
-<TOCInline toc={props.toc} asDisclosure toHeading={3} />
 
 ```python
 # Importing required modules
@@ -137,15 +134,7 @@ stock_data.describe()
 | 75%   | 767.882492 | 123.902503   |
 | max   | 844.359985 | 133.279999   |
 
-<div style={{ backgroundColor: 'white' }}>
-  >
-  <Image
-    alt="output_5_1.png"
-    src="/static/images/sharpe-ratio/output_5_1.png"
-    width={640}
-    height={427}
-  />
-</div>
+![output_5_1.png](/static/images/sharpe-ratio/output_5_1.png)
 
 ## Visualize &amp; summarize daily values for the S&amp;P 500
 
@@ -170,15 +159,7 @@ benchmark_data.describe()
 | 75%   | 2169.075000     |
 | max   | 2271.720000     |
 
-<div style={{ backgroundColor: 'white' }}>
-  >
-  <Image
-    alt="output_7_1.png"
-    src="/static/images/sharpe-ratio/output_7_1.png"
-    width={640}
-    height={427}
-  />
-</div>
+![output_7_1.png](/static/images/sharpe-ratio/output_7_1.png)
 
 ## The inputs for the Sharpe Ratio: Starting with Daily Stock Returns
 
@@ -212,22 +193,14 @@ stock_returns.describe()
 | 75%   | 0.009224   | 0.008108     |
 | max   | 0.095664   | 0.155214     |
 
-<div style={{ backgroundColor: 'white' }}>
-  >
-  <Image
-    alt="output_9_1.png"
-    src="/static/images/sharpe-ratio/output_9_1.png"
-    width={640}
-    height={427}
-  />
-</div>
+![output_9_1.png](/static/images/sharpe-ratio/output_9_1.png)
 
 ## Daily S&amp;P 500 returns
 
 For the S&amp;P 500, calculating daily returns works just the same way, we just need to make sure
-we select it as a <code>Series</code> using single brackets <code>[]</code> and not as a{' '}
+we select it as a `Series` using single brackets `[]` and not as a
 
-<code>DataFrame</code> to facilitate the calculations in the next step.
+`DataFrame` to facilitate the calculations in the next step.
 
 ```python
 # calculate daily benchmark_data returns
@@ -254,22 +227,14 @@ Output
     Name: S&P 500, dtype: float64
 ```
 
-<div style={{ backgroundColor: 'white' }}>
-  >
-  <Image
-    alt="output_11_1.png"
-    src="/static/images/sharpe-ratio/output_11_1.png"
-    width={640}
-    height={427}
-  />
-</div>
+![output_11_1.png](/static/images/sharpe-ratio/output_11_1.png)
 
 ## Calculating Excess Returns for Amazon and Facebook vs. S&P 500
 
 Next, we need to calculate the relative performance of stocks vs. the S&amp;P 500 benchmark. This
-is calculated as the difference in returns between <code>stock_returns</code> and{' '}
+is calculated as the difference in returns between `stock_returns` and
 
-<code>sp_returns</code> for each day.
+`sp_returns` for each day.
 
 ```python
 # calculate the difference in daily returns
@@ -293,23 +258,15 @@ excess_returns.describe()
 | 75%   | 0.007351   | 0.005814     |
 | max   | 0.100728   | 0.149686     |
 
-<div style={{ backgroundColor: 'white' }}>
-  >
-  <Image
-    alt="output_13_1.png"
-    src="/static/images/sharpe-ratio/output_13_1.png"
-    width={640}
-    height={427}
-  />
-</div>
+![output_13_1.png](/static/images/sharpe-ratio/output_13_1.png)
 
 ## The Sharpe Ratio
 
 ### Step 1: The Average Difference in Daily Returns Stocks vs S&P 500
 
-Now we can finally start computing the Sharpe Ratio. First we need to calculate the average of the{' '}
+Now we can finally start computing the Sharpe Ratio. First we need to calculate the average of the
 
-<code>excess_returns</code>. This tells us how much more or less the investment yields per day
+`excess_returns`. This tells us how much more or less the investment yields per day
 compared to the benchmark.
 
 ```python
@@ -320,22 +277,14 @@ avg_excess_return = excess_returns.mean()
 avg_excess_return.plot.bar(title='Mean of the Return Difference')
 ```
 
-<div style={{ backgroundColor: 'white' }}>
-  >
-  <Image
-    alt="output_15_1.png"
-    src="/static/images/sharpe-ratio/output_15_1.png"
-    width={640}
-    height={427}
-  />
-</div>
+![output_15_1.png](/static/images/sharpe-ratio/output_15_1.png)
 
 ### Step 2: Standard Deviation of the Return Difference
 
 It looks like there was quite a bit of a difference between average daily returns for Amazon and
 Facebook.
 
-Next, we calculate the standard deviation of the <code>excess_returns</code>. This shows us the
+Next, we calculate the standard deviation of the `excess_returns`. This shows us the
 amount of risk an investment in the stocks implies as compared to an investment in the S&amp;P 500.
 
 ```python
@@ -346,25 +295,17 @@ sd_excess_return = excess_returns.std()
 sd_excess_return.plot.bar(title='Standard Deviation of the Return Difference')
 ```
 
-<div style={{ backgroundColor: 'white' }}>
-  >
-  <Image
-    alt="output_17_1.png"
-    src="/static/images/sharpe-ratio/output_17_1.png"
-    width={640}
-    height={427}
-  />
-</div>
+![output_17_1.png](/static/images/sharpe-ratio/output_17_1.png)
 
 ## Putting it all together
 
-Now we just need to compute the ratio of <code>avg_excess_returns</code> and{' '}
+Now we just need to compute the ratio of `avg_excess_returns` and
 
-<code>sd_excess_returns</code>. The result is now finally the <em>Sharpe ratio</em> and indicates
+`sd_excess_returns`. The result is now finally the _Sharpe ratio_ and indicates
 how much more (or less) return the investment opportunity under consideration yields per unit of
 risk.
 
-The Sharpe Ratio is often <em>annualized</em> by multiplying it by the square root of the number
+The Sharpe Ratio is often _annualized_ by multiplying it by the square root of the number
 of periods. We have used daily data as input, so we'll use the square root of the number of
 trading days (5 days, 52 weeks, minus a few holidays): √252
 
@@ -380,15 +321,7 @@ annual_sharpe_ratio = daily_sharpe_ratio.mul(annual_factor)
 annual_sharpe_ratio.plot.bar(title='Annualized Sharpe Ratio: Stocks vs S&P500')
 ```
 
-<div style={{ backgroundColor: 'white' }}>
-  >
-  <Image
-    alt="output_19_1.png"
-    src="/static/images/sharpe-ratio/output_19_1.png"
-    width={640}
-    height={427}
-  />
-</div>
+![output_19_1.png](/static/images/sharpe-ratio/output_19_1.png)
 
 ## Conclusion
 
@@ -400,7 +333,7 @@ risk-adjusted terms, the investment in Amazon would have been more attractive.
 This difference was mostly driven by differences in return rather than risk between Amazon and
 Facebook. The risk of choosing Amazon over FB (as measured by the standard deviation) was only
 slightly higher so that the higher Sharpe ratio for Amazon ends up higher mainly due to the higher
-average daily returns for Amazon.{' '}
+average daily returns for Amazon.
 
 When faced with investment alternatives that offer both different returns and risks, the Sharpe
 Ratio helps to make a decision by adjusting the returns by the differences in risk and allows an

@@ -3,14 +3,14 @@ import HeaderIcon from './header-icons'
 
 export default function Experience() {
   return (
-    <div className="max-w-none pt-8 pb-8 xl:col-span-2">
+    <div className="max-w-none pb-8 pt-8 xl:col-span-2">
       <div className="my-4 flex flex-col">
         <span className="text-4xl font-bold">Work Experience</span>
         <span className="mb-4 inline-block h-0.5 w-20 rounded bg-day-accent dark:bg-night-accent"></span>
       </div>
       <div className="ml-[22px]">
-        <div className="flex flex-col place-items-start border-l border-b border-gray-300 pl-4 dark:border-gray-700">
-          <span className="relative mt-4 ml-[-40px] inline-block rounded border border-gray-700 bg-day py-1 px-2 text-xs font-medium hover:border-day-accent-hover dark:bg-night dark:hover:border-night-accent-hover">
+        <div className="flex flex-col place-items-start border-b border-l border-gray-300 pl-4 dark:border-gray-700">
+          <span className="relative ml-[-40px] mt-4 inline-block rounded border border-gray-700 bg-day px-2 py-1 text-xs font-medium hover:border-day-accent-hover dark:bg-night dark:hover:border-night-accent-hover">
             Mar 2022 - Present
           </span>
           <div className="w-full py-4">
@@ -33,14 +33,14 @@ export default function Experience() {
             › Cloud Architect
           </span>
           <p className="text-tighter text-sm font-light text-gray-700 dark:text-gray-300"></p>
-          <div className="prose mt-4 mb-4 dark:prose-dark">
+          <div className="prose mb-4 mt-4 dark:prose-dark">
             <ul className="block space-y-4 text-base">
               <li>I build stuff on AWS.</li>
             </ul>
           </div>
         </div>
-        <div className="flex flex-col place-items-start border-l border-b border-gray-300 pl-4 dark:border-gray-700">
-          <span className="relative mt-4 ml-[-40px] inline-block rounded border border-gray-700 bg-day py-1 px-2 text-xs font-medium hover:border-day-accent-hover dark:bg-night dark:hover:border-night-accent-hover">
+        <div className="flex flex-col place-items-start border-b border-l border-gray-300 pl-4 dark:border-gray-700">
+          <span className="relative ml-[-40px] mt-4 inline-block rounded border border-gray-700 bg-day px-2 py-1 text-xs font-medium hover:border-day-accent-hover dark:bg-night dark:hover:border-night-accent-hover">
             Jan 2020 - Present
           </span>
           <div className="w-full py-4">
@@ -83,7 +83,7 @@ export default function Experience() {
             </span>
             {'.'}
           </p>
-          <div className="prose mt-4 mb-4 dark:prose-dark">
+          <div className="prose mb-4 mt-4 dark:prose-dark">
             <ul className="block space-y-4 text-base">
               <li>
                 Grade assignments and projects, hold weekly office hours, and respond to students'
@@ -97,8 +97,8 @@ export default function Experience() {
             </ul>
           </div>
         </div>
-        <div className="flex flex-col place-items-start border-l border-b border-gray-300 pl-4 dark:border-gray-700">
-          <span className="relative mt-4 ml-[-40px] inline-block rounded border border-gray-700 bg-day py-1 px-2 text-xs font-medium hover:border-day-accent-hover dark:bg-night dark:hover:border-night-accent-hover">
+        <div className="flex flex-col place-items-start border-b border-l border-gray-300 pl-4 dark:border-gray-700">
+          <span className="relative ml-[-40px] mt-4 inline-block rounded border border-gray-700 bg-day px-2 py-1 text-xs font-medium hover:border-day-accent-hover dark:bg-night dark:hover:border-night-accent-hover">
             Dec 2020 - Mar 2022
           </span>
           <div className="w-full py-4">
@@ -123,7 +123,7 @@ export default function Experience() {
           <p className="text-tighter text-sm font-light text-gray-700 dark:text-gray-300">
             Promoted to Staff Software Engineer on the core asset data team.
           </p>
-          <div className="prose mt-4 mb-4 dark:prose-dark">
+          <div className="prose mb-4 mt-4 dark:prose-dark">
             <ul className="block space-y-4 text-base">
               <li>
                 Develop scalable and performant event driven services built on AWS Serverless
@@ -156,8 +156,8 @@ export default function Experience() {
             </ul>
           </div>
         </div>
-        <div className="flex flex-col place-items-start border-l border-b border-gray-300 pl-4 dark:border-gray-700">
-          <span className="relative mt-4 ml-[-40px] inline-block rounded border border-gray-700 bg-day py-1 px-2 text-xs font-medium hover:border-day-accent-hover dark:bg-night dark:hover:border-night-accent-hover">
+        <div className="flex flex-col place-items-start border-b border-l border-gray-300 pl-4 dark:border-gray-700">
+          <span className="relative ml-[-40px] mt-4 inline-block rounded border border-gray-700 bg-day px-2 py-1 text-xs font-medium hover:border-day-accent-hover dark:bg-night dark:hover:border-night-accent-hover">
             Aug 2018 - Dec 2020
           </span>
           <div className="w-full py-4">
@@ -184,7 +184,7 @@ export default function Experience() {
             Customer Portals - a web application for airline customers to view, analyze, and manage
             their fleet of jet engines.
           </p>
-          <div className="prose mt-4 mb-4 dark:prose-dark">
+          <div className="prose mb-4 mt-4 dark:prose-dark">
             <ul className="block space-y-4 text-base">
               <li>
                 Utilized cloud native services such as AWS Lambda, API Gateway, DynamoDB, Aurora,
@@ -215,8 +215,8 @@ export default function Experience() {
             </ul>
           </div>
         </div>
-        <div className="flex flex-col place-items-start border-l border-b border-gray-300 pl-4 dark:border-gray-700">
-          <span className="relative mt-4 ml-[-40px] inline-block rounded border border-gray-700 bg-day py-1 px-2 text-xs font-medium hover:border-day-accent-hover dark:bg-night dark:hover:border-night-accent-hover">
+        <div className="flex flex-col place-items-start border-b border-l border-gray-300 pl-4 dark:border-gray-700">
+          <span className="relative ml-[-40px] mt-4 inline-block rounded border border-gray-700 bg-day px-2 py-1 text-xs font-medium hover:border-day-accent-hover dark:bg-night dark:hover:border-night-accent-hover">
             Jul 2016 - Aug 2018
           </span>
           <div className="w-full py-4">
@@ -243,7 +243,7 @@ export default function Experience() {
             building the necessary technical and leadership skills in software and information
             technology.
           </p>
-          <div className="prose mt-4 mb-4 dark:prose-dark">
+          <div className="prose mb-4 mt-4 dark:prose-dark">
             <ul className="block space-y-4 text-base">
               <li>
                 <strong>Infrastructure Architect (1st Rotation)</strong> - Utilized Chef to automate
